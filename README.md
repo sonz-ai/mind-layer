@@ -233,7 +233,8 @@ pages to supported subsets or exclusions. Edit `docs/capabilities.json` and
 | Evolving-character test project | Runnable UI, reproducible story, persistence and tests |
 | Source provenance and license | Selected retrieval files recorded; Apache-2.0 and upstream notices included |
 | Docs, diagrams, synthetic benchmarks and CI workflow | Included; local verification runs independently of GitHub |
-| Publication destinations | [GitHub source](https://github.com/sonz-ai/mind-layer) · [Documentation](https://docs.sonz.ai) |
+| Public source | [github.com/sonz-ai/mind-layer](https://github.com/sonz-ai/mind-layer) |
+| Standalone docs deployment | Prepared for `docs.sonz.ai`; custom-domain cutover pending Cloudflare authentication |
 
 No source Git history, environment files, customer conversations, or internal
 runbooks were imported. Required public third-party copyright/license attribution
@@ -253,3 +254,6 @@ The explicit evolution example does not change those core scope boundaries.
 Read [Security](SECURITY.md) and [Data lifecycle](docs/data-lifecycle.md): the owner
 token grants all scopes, storage is not application-encrypted, and logical deletion
 is not secure erasure of free pages, backups or provider logs.
+
+Maintainers: see [Publishing](docs/PUBLISHING.md) for the dedicated Cloudflare
+Pages configuration and manual deployment workflow.
