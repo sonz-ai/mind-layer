@@ -1,0 +1,147 @@
+{
+  "arch": "arm64",
+  "dataset": "mind-layer-synthetic-v1",
+  "dataset_sha256": "297811d32167a59cfb1fe7bd1bfcdc03633c5b8cc1606e13dfff1d810fcd489d",
+  "go_version": "go1.26.0",
+  "ingest_ms": 483.67,
+  "k": 3,
+  "limitations": "Small authored retrieval diagnostic, not LoCoMo/LongMemEval, not answer accuracy. No statistical confidence claim. Provider pricing is not estimated.",
+  "logical_cpus": 14,
+  "mean_recall_at_k": 0.75,
+  "measured_at": "2026-09-10T19:56:11Z",
+  "memories": 12,
+  "mode": "lexical",
+  "mrr_at_k": 0.75,
+  "os": "darwin",
+  "queries": 12,
+  "recency_baseline_recall_at_k": 0.25,
+  "results": [
+    {
+      "id": "diet-direct",
+      "category": "lexical",
+      "recall_at_k": 1,
+      "reciprocal_rank_at_k": 1,
+      "retrieved_ids": [
+        "diet"
+      ],
+      "milliseconds": 0.055
+    },
+    {
+      "id": "drink-direct",
+      "category": "lexical",
+      "recall_at_k": 1,
+      "reciprocal_rank_at_k": 1,
+      "retrieved_ids": [
+        "drink"
+      ],
+      "milliseconds": 0.033
+    },
+    {
+      "id": "exercise-inflection",
+      "category": "inflection",
+      "recall_at_k": 1,
+      "reciprocal_rank_at_k": 1,
+      "retrieved_ids": [
+        "exercise"
+      ],
+      "milliseconds": 0.027
+    },
+    {
+      "id": "music-direct",
+      "category": "lexical",
+      "recall_at_k": 1,
+      "reciprocal_rank_at_k": 1,
+      "retrieved_ids": [
+        "music"
+      ],
+      "milliseconds": 0.033
+    },
+    {
+      "id": "pet-direct",
+      "category": "lexical",
+      "recall_at_k": 1,
+      "reciprocal_rank_at_k": 1,
+      "retrieved_ids": [
+        "pet"
+      ],
+      "milliseconds": 0.036
+    },
+    {
+      "id": "meeting-direct",
+      "category": "lexical",
+      "recall_at_k": 1,
+      "reciprocal_rank_at_k": 1,
+      "retrieved_ids": [
+        "meeting"
+      ],
+      "milliseconds": 0.034
+    },
+    {
+      "id": "diet-paraphrase",
+      "category": "paraphrase-multiple-evidence",
+      "recall_at_k": 0,
+      "reciprocal_rank_at_k": 0,
+      "retrieved_ids": [],
+      "milliseconds": 1.377
+    },
+    {
+      "id": "project-paraphrase",
+      "category": "paraphrase",
+      "recall_at_k": 0,
+      "reciprocal_rank_at_k": 0,
+      "retrieved_ids": [],
+      "milliseconds": 1.328
+    },
+    {
+      "id": "travel-paraphrase",
+      "category": "paraphrase",
+      "recall_at_k": 0,
+      "reciprocal_rank_at_k": 0,
+      "retrieved_ids": [
+        "diet"
+      ],
+      "milliseconds": 1.309
+    },
+    {
+      "id": "hobby-paraphrase",
+      "category": "paraphrase",
+      "recall_at_k": 1,
+      "reciprocal_rank_at_k": 1,
+      "retrieved_ids": [
+        "hobby",
+        "meeting"
+      ],
+      "milliseconds": 2.628
+    },
+    {
+      "id": "book-direct",
+      "category": "lexical",
+      "recall_at_k": 1,
+      "reciprocal_rank_at_k": 1,
+      "retrieved_ids": [
+        "book"
+      ],
+      "milliseconds": 0.056
+    },
+    {
+      "id": "language-direct",
+      "category": "lexical",
+      "recall_at_k": 1,
+      "reciprocal_rank_at_k": 1,
+      "retrieved_ids": [
+        "language"
+      ],
+      "milliseconds": 0.042
+    }
+  ],
+  "scale_latency": {
+    "individual_durable_writes_total_ms": 9274.845,
+    "mode": "lexical",
+    "note": "Warm single-process sequential latency including database reads; not HTTP, cold start, concurrency or provider latency.",
+    "p50_ms": 3.267,
+    "p95_ms": 4.38,
+    "queries": 30,
+    "records": 1000,
+    "status": "measured"
+  }
+}

@@ -1,0 +1,13 @@
+.env
+.env.*
+!.env.example
+data/
+*.db
+*.db.lock
+bin/
+.venv/
+site/
+__pycache__/
+.DS_Store
+coverage.out
+benchmarks/local/

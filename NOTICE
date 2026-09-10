@@ -1,0 +1,15 @@
+Mind Layer
+Copyright 2026 Sonzai Labs Pte Ltd
+
+This standalone edition includes selected BM25 retrieval and multilingual
+tokenization code from Sonzai's context engine. SOURCE_MANIFEST.json records
+the selected source files and original hashes. The storage layer, HTTP service,
+provider integration, scoped documentation, and release diagnostics are new.
+
+This edition does not include the full hosted Sonzai platform or claim API
+compatibility with its services or SDKs. No Sonzai account, license server,
+subscription, metering service, or payment is required to run this edition.
+
+Third-party dependencies remain under their respective licenses. See
+THIRD_PARTY_NOTICES.md and go.mod/go.sum. The project's Apache-2.0 license does
+not relicense those dependencies or grant rights to third-party trademarks.

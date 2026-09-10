@@ -1,0 +1,35 @@
+{
+  "description": "Selected retrieval code extracted without source Git history. Other files are new standalone implementation. Hashes describe original selected bytes, before standalone modifications.",
+  "files": [
+    {
+      "source": "services/contextengine/index/bm25.go",
+      "destination": "internal/index/bm25.go",
+      "sha256": "b90d52188c239eebc3a2ef6c11d3c09dd77d391f05ab732f4f03bd148ff6debc"
+    },
+    {
+      "source": "services/contextengine/index/bm25_test.go",
+      "destination": "internal/index/bm25_test.go",
+      "sha256": "2ea42fd4b28aab6ec5478f37894101859839630cb2f3de238d65eb3922876120"
+    },
+    {
+      "source": "services/contextengine/index/stemmer.go",
+      "destination": "internal/index/stemmer.go",
+      "sha256": "de8ec1898a540837d95493691622bbaa55fd95d9cb051e25324a4409944a6f74"
+    },
+    {
+      "source": "services/contextengine/index/stemmer_test.go",
+      "destination": "internal/index/stemmer_test.go",
+      "sha256": "098bd0a436bce40815045bff5478f511cefa4c39029eaae94cf8c6c4cd3fa4d7"
+    },
+    {
+      "source": "services/contextengine/index/tokenizer.go",
+      "destination": "internal/index/tokenizer.go",
+      "sha256": "1fa9a8cfa5dd1fe6764f1e2431a51c6a2df534d6c10657a60c283f04ee3d8d94"
+    },
+    {
+      "source": "services/contextengine/index/tokenizer_test.go",
+      "destination": "internal/index/tokenizer_test.go",
+      "sha256": "9f8646fc2e75b5fd35d457524e4379eac7efc117e6f4cdc673da795b3a8b6006"
+    }
+  ]
+}

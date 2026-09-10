@@ -1,0 +1,114 @@
+{
+  "status": "pass",
+  "measured_at": "2026-09-10T21:22:05.628125+00:00",
+  "command": "go test -race -count=1 -json ./...; go vet ./...",
+  "go_source_sha256": "640c9a450c18abf318cdf82ba94aeeaa134d788f6c5aa768237c308a9bf4777a",
+  "capabilities": [
+    {
+      "id": "offline-memory",
+      "passing_tests": [
+        "TestNoProviderRequired"
+      ]
+    },
+    {
+      "id": "persistence",
+      "passing_tests": [
+        "TestDurableMemory"
+      ]
+    },
+    {
+      "id": "scope-isolation",
+      "passing_tests": [
+        "TestScopeIsolation",
+        "TestSemanticAndHybridRecall"
+      ]
+    },
+    {
+      "id": "lexical-retrieval",
+      "passing_tests": [
+        "TestLexicalRecall"
+      ]
+    },
+    {
+      "id": "semantic-hybrid",
+      "passing_tests": [
+        "TestSemanticAndHybridRecall",
+        "TestModelMismatchFailsClosed"
+      ]
+    },
+    {
+      "id": "explicit-updates",
+      "passing_tests": [
+        "TestExplicitUpdatesAndDeduplication"
+      ]
+    },
+    {
+      "id": "export-delete",
+      "passing_tests": [
+        "TestExportAndDeletion"
+      ]
+    },
+    {
+      "id": "personality-context",
+      "passing_tests": [
+        "TestPersonalityContext",
+        "TestDurableMemory"
+      ]
+    },
+    {
+      "id": "extraction-chat",
+      "passing_tests": [
+        "TestExtractionAndGroundedChat",
+        "TestExtractionFailureDoesNotPersist"
+      ]
+    },
+    {
+      "id": "rest-api",
+      "passing_tests": [
+        "TestHTTPMemoryLifecycle",
+        "TestHTTPProviderEndpoints"
+      ]
+    },
+    {
+      "id": "local-access",
+      "passing_tests": [
+        "TestHTTPAuthenticationAndBrowserIsolation",
+        "TestHTTPRejectsInvalidInput"
+      ]
+    },
+    {
+      "id": "provider-boundary",
+      "passing_tests": [
+        "TestProviderURLValidation",
+        "TestProviderErrorRedaction",
+        "TestProviderRejectsRedirect",
+        "TestInvalidProviderOutput"
+      ]
+    },
+    {
+      "id": "concurrency-validation",
+      "passing_tests": [
+        "TestConcurrentMemoryAccess",
+        "TestInputValidationAndAtomicBatch"
+      ]
+    },
+    {
+      "id": "atomic-personality-memory",
+      "passing_tests": [
+        "TestAtomicScopeUpdate"
+      ]
+    },
+    {
+      "id": "character-example",
+      "passing_tests": [
+        "TestCharacterEvolution",
+        "TestCharacterRestartAndIsolation",
+        "TestCharacterConcurrentRevision",
+        "TestCharacterBoundsAndInvalidAction",
+        "TestCharacterHTTP"
+      ]
+    }
+  ],
+  "test_pass_events": 96,
+  "note": "Includes subtests. Live provider tests skipped in this offline run. Passing provider mocks establish contracts, not model quality."
+}

@@ -1,0 +1,169 @@
+{
+  "arch": "arm64",
+  "dataset": "mind-layer-synthetic-v1",
+  "dataset_sha256": "297811d32167a59cfb1fe7bd1bfcdc03633c5b8cc1606e13dfff1d810fcd489d",
+  "embedding_model": "gemini-embedding-001",
+  "go_version": "go1.26.0",
+  "ingest_ms": 3807.307,
+  "k": 3,
+  "limitations": "Small authored retrieval diagnostic, not LoCoMo/LongMemEval, not answer accuracy. No statistical confidence claim. Provider pricing is not estimated.",
+  "logical_cpus": 14,
+  "mean_recall_at_k": 1,
+  "measured_at": "2026-09-10T19:57:06Z",
+  "memories": 12,
+  "mode": "hybrid",
+  "mrr_at_k": 0.9583333333333334,
+  "os": "darwin",
+  "provider_base_url": "https://generativelanguage.googleapis.com/v1beta/openai",
+  "queries": 12,
+  "recency_baseline_recall_at_k": 0.25,
+  "results": [
+    {
+      "id": "diet-direct",
+      "category": "lexical",
+      "recall_at_k": 1,
+      "reciprocal_rank_at_k": 1,
+      "retrieved_ids": [
+        "diet",
+        "drink",
+        "allergy"
+      ],
+      "milliseconds": 256.119
+    },
+    {
+      "id": "drink-direct",
+      "category": "lexical",
+      "recall_at_k": 1,
+      "reciprocal_rank_at_k": 1,
+      "retrieved_ids": [
+        "drink",
+        "allergy",
+        "diet"
+      ],
+      "milliseconds": 257.1
+    },
+    {
+      "id": "exercise-inflection",
+      "category": "inflection",
+      "recall_at_k": 1,
+      "reciprocal_rank_at_k": 1,
+      "retrieved_ids": [
+        "exercise",
+        "project",
+        "hobby"
+      ],
+      "milliseconds": 227.777
+    },
+    {
+      "id": "music-direct",
+      "category": "lexical",
+      "recall_at_k": 1,
+      "reciprocal_rank_at_k": 1,
+      "retrieved_ids": [
+        "music",
+        "language",
+        "book"
+      ],
+      "milliseconds": 237.527
+    },
+    {
+      "id": "pet-direct",
+      "category": "lexical",
+      "recall_at_k": 1,
+      "reciprocal_rank_at_k": 1,
+      "retrieved_ids": [
+        "pet",
+        "book",
+        "hobby"
+      ],
+      "milliseconds": 263.534
+    },
+    {
+      "id": "meeting-direct",
+      "category": "lexical",
+      "recall_at_k": 1,
+      "reciprocal_rank_at_k": 1,
+      "retrieved_ids": [
+        "meeting",
+        "drink",
+        "book"
+      ],
+      "milliseconds": 254.921
+    },
+    {
+      "id": "diet-paraphrase",
+      "category": "paraphrase-multiple-evidence",
+      "recall_at_k": 1,
+      "reciprocal_rank_at_k": 1,
+      "retrieved_ids": [
+        "diet",
+        "allergy",
+        "drink"
+      ],
+      "milliseconds": 243.38
+    },
+    {
+      "id": "project-paraphrase",
+      "category": "paraphrase",
+      "recall_at_k": 1,
+      "reciprocal_rank_at_k": 1,
+      "retrieved_ids": [
+        "project",
+        "hobby",
+        "book"
+      ],
+      "milliseconds": 247.91
+    },
+    {
+      "id": "travel-paraphrase",
+      "category": "paraphrase",
+      "recall_at_k": 1,
+      "reciprocal_rank_at_k": 0.5,
+      "retrieved_ids": [
+        "diet",
+        "travel",
+        "hobby"
+      ],
+      "milliseconds": 245.442
+    },
+    {
+      "id": "hobby-paraphrase",
+      "category": "paraphrase",
+      "recall_at_k": 1,
+      "reciprocal_rank_at_k": 1,
+      "retrieved_ids": [
+        "hobby",
+        "meeting",
+        "pet"
+      ],
+      "milliseconds": 225.773
+    },
+    {
+      "id": "book-direct",
+      "category": "lexical",
+      "recall_at_k": 1,
+      "reciprocal_rank_at_k": 1,
+      "retrieved_ids": [
+        "book",
+        "project",
+        "pet"
+      ],
+      "milliseconds": 314.854
+    },
+    {
+      "id": "language-direct",
+      "category": "lexical",
+      "recall_at_k": 1,
+      "reciprocal_rank_at_k": 1,
+      "retrieved_ids": [
+        "language",
+        "book",
+        "diet"
+      ],
+      "milliseconds": 303.662
+    }
+  ],
+  "scale_latency": {
+    "status": "not_run"
+  }
+}

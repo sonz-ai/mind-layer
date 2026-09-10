@@ -1,0 +1,136 @@
+[
+  {
+    "id": "offline-memory",
+    "claim": "Store and retrieve explicit memories without provider keys or a Sonzai account",
+    "provider": "none",
+    "tests": [
+      "TestNoProviderRequired"
+    ]
+  },
+  {
+    "id": "persistence",
+    "claim": "Memories and personality survive database close and reopen",
+    "provider": "none",
+    "tests": [
+      "TestDurableMemory"
+    ]
+  },
+  {
+    "id": "scope-isolation",
+    "claim": "Separate agent/user scopes for search, export and deletion",
+    "provider": "none",
+    "tests": [
+      "TestScopeIsolation",
+      "TestSemanticAndHybridRecall"
+    ]
+  },
+  {
+    "id": "lexical-retrieval",
+    "claim": "BM25 keyword retrieval with stemming and no-match empty results",
+    "provider": "none",
+    "tests": [
+      "TestLexicalRecall"
+    ]
+  },
+  {
+    "id": "semantic-hybrid",
+    "claim": "Direct-provider embeddings, cosine retrieval and reciprocal-rank hybrid search",
+    "provider": "embedding model",
+    "tests": [
+      "TestSemanticAndHybridRecall",
+      "TestModelMismatchFailsClosed"
+    ]
+  },
+  {
+    "id": "explicit-updates",
+    "claim": "Update by memory ID and deduplicate exact trimmed text",
+    "provider": "none; embedding calls when configured",
+    "tests": [
+      "TestExplicitUpdatesAndDeduplication"
+    ]
+  },
+  {
+    "id": "export-delete",
+    "claim": "Export a scope and logically delete individual memories or the whole scope",
+    "provider": "none",
+    "tests": [
+      "TestExportAndDeletion"
+    ]
+  },
+  {
+    "id": "personality-context",
+    "claim": "Persist a manually configured personality and include it in retrieved context",
+    "provider": "none",
+    "tests": [
+      "TestPersonalityContext",
+      "TestDurableMemory"
+    ]
+  },
+  {
+    "id": "extraction-chat",
+    "claim": "Extract facts from supplied text and answer with selected memories through the configured provider",
+    "provider": "chat model; optional embedding model",
+    "tests": [
+      "TestExtractionAndGroundedChat",
+      "TestExtractionFailureDoesNotPersist"
+    ]
+  },
+  {
+    "id": "rest-api",
+    "claim": "REST memory, personality, retrieval, context, ingest, chat, export and delete endpoints",
+    "provider": "depends on endpoint",
+    "tests": [
+      "TestHTTPMemoryLifecycle",
+      "TestHTTPProviderEndpoints"
+    ]
+  },
+  {
+    "id": "local-access",
+    "claim": "Loopback defaults, owner-token authentication, browser-origin rejection and public-bind checks",
+    "provider": "none",
+    "tests": [
+      "TestHTTPAuthenticationAndBrowserIsolation",
+      "TestHTTPRejectsInvalidInput"
+    ]
+  },
+  {
+    "id": "provider-boundary",
+    "claim": "Direct provider transport with URL validation, error redaction and no redirect following",
+    "provider": "mock provider for tests",
+    "tests": [
+      "TestProviderURLValidation",
+      "TestProviderErrorRedaction",
+      "TestProviderRejectsRedirect",
+      "TestInvalidProviderOutput"
+    ]
+  },
+  {
+    "id": "concurrency-validation",
+    "claim": "Concurrent in-process access and validation before batch writes",
+    "provider": "none",
+    "tests": [
+      "TestConcurrentMemoryAccess",
+      "TestInputValidationAndAtomicBatch"
+    ]
+  },
+  {
+    "id": "atomic-personality-memory",
+    "claim": "Commit application-driven personality changes with event memories atomically",
+    "provider": "none; embeddings if configured",
+    "tests": [
+      "TestAtomicScopeUpdate"
+    ]
+  },
+  {
+    "id": "character-example",
+    "claim": "Moss example evolves through explicit interactions, recalls them, persists after restart and rejects stale turns",
+    "provider": "none; optional generated dialogue",
+    "tests": [
+      "TestCharacterEvolution",
+      "TestCharacterRestartAndIsolation",
+      "TestCharacterConcurrentRevision",
+      "TestCharacterBoundsAndInvalidAction",
+      "TestCharacterHTTP"
+    ]
+  }
+]

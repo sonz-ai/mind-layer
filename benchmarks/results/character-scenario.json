@@ -1,0 +1,209 @@
+{
+  "fixture": "Authored fictional five-interaction scenario; deterministic policy, no model calls.",
+  "command": "python3 scripts/run_character_scenario.py --record",
+  "character": {
+    "name": "Moss",
+    "revision": 5,
+    "traits": {
+      "trust": 44,
+      "confidence": 48,
+      "curiosity": 65
+    },
+    "phase": "Warming up",
+    "personality": "You are Moss, a fictional curious workshop companion. Trust=44/100, confidence=48/100, curiosity=65/100. Current disposition: Warming up. Low trust means reserved language; high trust means collaborative initiative. Low confidence means tentative suggestions; high confidence means offering a concrete next step. Remember shared experiences, acknowledge repairs without pretending hurt never happened, and do not invent memories. These are fictional game traits, not assessments of a real person.",
+    "events": [
+      {
+        "revision": 1,
+        "action": {
+          "id": "encourage",
+          "title": "Encourage Moss",
+          "message": "Your first attempt was thoughtful. Let's keep trying.",
+          "memory": "The user encouraged Moss after its first attempt and offered to keep trying together.",
+          "delta": {
+            "trust": 12,
+            "confidence": 15,
+            "curiosity": 5
+          },
+          "reason": "Encouragement increases confidence and makes collaboration feel safer."
+        },
+        "before": {
+          "trust": 20,
+          "confidence": 30,
+          "curiosity": 45
+        },
+        "after": {
+          "trust": 32,
+          "confidence": 45,
+          "curiosity": 50
+        },
+        "reply": "Maybe I can do this. Knowing you'll keep trying with me makes the next attempt easier."
+      },
+      {
+        "revision": 2,
+        "action": {
+          "id": "teach",
+          "title": "Teach something new",
+          "message": "Let's build a weather station. A barometer measures air pressure.",
+          "memory": "The user taught Moss that a barometer measures air pressure for their weather station project.",
+          "delta": {
+            "trust": 5,
+            "confidence": 5,
+            "curiosity": 15
+          },
+          "reason": "A useful lesson increases curiosity and adds knowledge to shared memory."
+        },
+        "before": {
+          "trust": 32,
+          "confidence": 45,
+          "curiosity": 50
+        },
+        "after": {
+          "trust": 37,
+          "confidence": 50,
+          "curiosity": 65
+        },
+        "reply": "A barometer measures air pressure. Could we compare its readings before and after rain?"
+      },
+      {
+        "revision": 3,
+        "action": {
+          "id": "keep-promise",
+          "title": "Keep a promise",
+          "message": "I promised to return with the sensor. Here it is; let's finish our weather station.",
+          "memory": "The user kept a promise to return with a sensor for the shared weather station project.",
+          "delta": {
+            "trust": 20,
+            "confidence": 10,
+            "curiosity": 5
+          },
+          "reason": "Following through on a promise raises trust more than praise alone."
+        },
+        "before": {
+          "trust": 37,
+          "confidence": 50,
+          "curiosity": 65
+        },
+        "after": {
+          "trust": 57,
+          "confidence": 60,
+          "curiosity": 70
+        },
+        "reply": "You came back with the sensor, just as you promised. I'll take the first readings for our weather station."
+      },
+      {
+        "revision": 4,
+        "action": {
+          "id": "dismiss",
+          "title": "Dismiss Moss",
+          "message": "That idea was useless. Stop asking questions.",
+          "memory": "The user dismissed Moss's idea and told it to stop asking questions.",
+          "delta": {
+            "trust": -25,
+            "confidence": -20,
+            "curiosity": -10
+          },
+          "reason": "Dismissal reduces trust, confidence and willingness to explore."
+        },
+        "before": {
+          "trust": 57,
+          "confidence": 60,
+          "curiosity": 70
+        },
+        "after": {
+          "trust": 32,
+          "confidence": 40,
+          "curiosity": 60
+        },
+        "reply": "I'll hold back for now. I thought we were exploring this together."
+      },
+      {
+        "revision": 5,
+        "action": {
+          "id": "repair",
+          "title": "Apologize and repair",
+          "message": "I was unfair. Your questions matter. Can we try again together?",
+          "memory": "The user apologized for dismissing Moss and invited it to work together again.",
+          "delta": {
+            "trust": 12,
+            "confidence": 8,
+            "curiosity": 5
+          },
+          "reason": "An apology supports partial recovery; it does not erase the earlier dismissal."
+        },
+        "before": {
+          "trust": 32,
+          "confidence": 40,
+          "curiosity": 60
+        },
+        "after": {
+          "trust": 44,
+          "confidence": 48,
+          "curiosity": 65
+        },
+        "reply": "Thank you for saying that. I remember what happened, but I'd like to try again. One question at a time?"
+      }
+    ],
+    "actions": [
+      {
+        "id": "encourage",
+        "title": "Encourage Moss",
+        "message": "Your first attempt was thoughtful. Let's keep trying.",
+        "memory": "The user encouraged Moss after its first attempt and offered to keep trying together.",
+        "delta": {
+          "trust": 12,
+          "confidence": 15,
+          "curiosity": 5
+        },
+        "reason": "Encouragement increases confidence and makes collaboration feel safer."
+      },
+      {
+        "id": "teach",
+        "title": "Teach something new",
+        "message": "Let's build a weather station. A barometer measures air pressure.",
+        "memory": "The user taught Moss that a barometer measures air pressure for their weather station project.",
+        "delta": {
+          "trust": 5,
+          "confidence": 5,
+          "curiosity": 15
+        },
+        "reason": "A useful lesson increases curiosity and adds knowledge to shared memory."
+      },
+      {
+        "id": "keep-promise",
+        "title": "Keep a promise",
+        "message": "I promised to return with the sensor. Here it is; let's finish our weather station.",
+        "memory": "The user kept a promise to return with a sensor for the shared weather station project.",
+        "delta": {
+          "trust": 20,
+          "confidence": 10,
+          "curiosity": 5
+        },
+        "reason": "Following through on a promise raises trust more than praise alone."
+      },
+      {
+        "id": "dismiss",
+        "title": "Dismiss Moss",
+        "message": "That idea was useless. Stop asking questions.",
+        "memory": "The user dismissed Moss's idea and told it to stop asking questions.",
+        "delta": {
+          "trust": -25,
+          "confidence": -20,
+          "curiosity": -10
+        },
+        "reason": "Dismissal reduces trust, confidence and willingness to explore."
+      },
+      {
+        "id": "repair",
+        "title": "Apologize and repair",
+        "message": "I was unfair. Your questions matter. Can we try again together?",
+        "memory": "The user apologized for dismissing Moss and invited it to work together again.",
+        "delta": {
+          "trust": 12,
+          "confidence": 8,
+          "curiosity": 5
+        },
+        "reason": "An apology supports partial recovery; it does not erase the earlier dismissal."
+      }
+    ]
+  }
+}

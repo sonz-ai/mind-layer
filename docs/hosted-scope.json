@@ -1,0 +1,218 @@
+[
+  {
+    "source_page": "advance-time",
+    "title": "Advance Time",
+    "status": "not included",
+    "scope": "Not implemented or promised by this standalone edition."
+  },
+  {
+    "source_page": "agent-insights",
+    "title": "Agent Insights",
+    "status": "not included",
+    "scope": "Not implemented or promised by this standalone edition."
+  },
+  {
+    "source_page": "architecture",
+    "title": "Architecture",
+    "status": "limited subset",
+    "scope": "Replaced by the standalone single-process architecture."
+  },
+  {
+    "source_page": "connect-hermes",
+    "title": "Pattern 6: Hermes",
+    "status": "not included",
+    "scope": "Not implemented or promised by this standalone edition."
+  },
+  {
+    "source_page": "connect-managed-runtime",
+    "title": "Pattern 1: Managed Agent Runtime",
+    "status": "not included",
+    "scope": "Not implemented or promised by this standalone edition."
+  },
+  {
+    "source_page": "connect-mcp",
+    "title": "Pattern 2: MCP",
+    "status": "not included",
+    "scope": "Not implemented or promised by this standalone edition."
+  },
+  {
+    "source_page": "connect-openclaw",
+    "title": "Pattern 3: OpenClaw",
+    "status": "not included",
+    "scope": "Not implemented or promised by this standalone edition."
+  },
+  {
+    "source_page": "connect-standalone-batch",
+    "title": "Pattern 5: Standalone Memory (Batch)",
+    "status": "limited subset",
+    "scope": "Library batch writes are atomic; no hosted batch processing service."
+  },
+  {
+    "source_page": "connect-standalone-realtime",
+    "title": "Pattern 4: Standalone Memory (Real-Time)",
+    "status": "limited subset",
+    "scope": "New local REST API, incompatible with the hosted SDK/API."
+  },
+  {
+    "source_page": "conversations",
+    "title": "Conversations",
+    "status": "limited subset",
+    "scope": "Single non-streaming reply with retrieved context; no managed conversation runtime."
+  },
+  {
+    "source_page": "custom-states",
+    "title": "Custom State",
+    "status": "not included",
+    "scope": "Not implemented or promised by this standalone edition."
+  },
+  {
+    "source_page": "custom-tools",
+    "title": "Custom Tools",
+    "status": "not included",
+    "scope": "Not implemented or promised by this standalone edition."
+  },
+  {
+    "source_page": "emotions",
+    "title": "Emotions & Mood",
+    "status": "not included",
+    "scope": "Not implemented or promised by this standalone edition."
+  },
+  {
+    "source_page": "events-and-dialogue",
+    "title": "Events & Multi-Agent Dialogue",
+    "status": "not included",
+    "scope": "Not implemented or promised by this standalone edition."
+  },
+  {
+    "source_page": "generation",
+    "title": "Generation",
+    "status": "not included",
+    "scope": "Not implemented or promised by this standalone edition."
+  },
+  {
+    "source_page": "home",
+    "title": "Sonzai Mind Layer",
+    "status": "limited subset",
+    "scope": "Replaced by the tested standalone capability list."
+  },
+  {
+    "source_page": "instances",
+    "title": "Instances",
+    "status": "limited subset",
+    "scope": "Agent/user namespace isolation only; no hosted workspace provisioning."
+  },
+  {
+    "source_page": "inventory",
+    "title": "Inventory",
+    "status": "not included",
+    "scope": "Not implemented or promised by this standalone edition."
+  },
+  {
+    "source_page": "knowledge-analytics",
+    "title": "Knowledge Analytics",
+    "status": "not included",
+    "scope": "Not implemented or promised by this standalone edition."
+  },
+  {
+    "source_page": "knowledge-base",
+    "title": "Knowledge Base",
+    "status": "limited subset",
+    "scope": "Plain text can be inserted as facts; no file ingestion or graph-building pipeline."
+  },
+  {
+    "source_page": "memory",
+    "title": "Memory",
+    "status": "limited subset",
+    "scope": "Explicit facts, BM25 and optional semantic/hybrid retrieval only."
+  },
+  {
+    "source_page": "multiplayer-memory",
+    "title": "Multiplayer Memory",
+    "status": "not included",
+    "scope": "Not implemented or promised by this standalone edition."
+  },
+  {
+    "source_page": "notifications-polling",
+    "title": "Notifications (Polling)",
+    "status": "not included",
+    "scope": "Not implemented or promised by this standalone edition."
+  },
+  {
+    "source_page": "omnichannel",
+    "title": "Omnichannel Messaging",
+    "status": "not included",
+    "scope": "Not implemented or promised by this standalone edition."
+  },
+  {
+    "source_page": "organization-knowledge-base",
+    "title": "Organization-Global Knowledge Base",
+    "status": "not included",
+    "scope": "Not implemented or promised by this standalone edition."
+  },
+  {
+    "source_page": "personality",
+    "title": "Personality System",
+    "status": "limited subset",
+    "scope": "Manually configured personality text only; no automatic Big Five evolution."
+  },
+  {
+    "source_page": "priming",
+    "title": "Priming",
+    "status": "not included",
+    "scope": "Not implemented or promised by this standalone edition."
+  },
+  {
+    "source_page": "proactive-overview",
+    "title": "Proactive Messaging",
+    "status": "not included",
+    "scope": "Not implemented or promised by this standalone edition."
+  },
+  {
+    "source_page": "scheduled-reminders",
+    "title": "Scheduled Reminders",
+    "status": "not included",
+    "scope": "Not implemented or promised by this standalone edition."
+  },
+  {
+    "source_page": "self-improvement",
+    "title": "Self-Improvement (Post-Processing)",
+    "status": "not included",
+    "scope": "Not implemented or promised by this standalone edition."
+  },
+  {
+    "source_page": "sessions",
+    "title": "Sessions",
+    "status": "limited subset",
+    "scope": "Session provenance labels only; no session lifecycle or automatic end processing."
+  },
+  {
+    "source_page": "shared-memory",
+    "title": "Shared Memory",
+    "status": "not included",
+    "scope": "Not implemented or promised by this standalone edition."
+  },
+  {
+    "source_page": "user-personas",
+    "title": "User Personas",
+    "status": "limited subset",
+    "scope": "Manual per-scope personality/context only; no inferred user persona."
+  },
+  {
+    "source_page": "voice",
+    "title": "Voice",
+    "status": "not included",
+    "scope": "Not implemented or promised by this standalone edition."
+  },
+  {
+    "source_page": "wakeups",
+    "title": "Wakeups",
+    "status": "not included",
+    "scope": "Not implemented or promised by this standalone edition."
+  },
+  {
+    "source_page": "webhooks",
+    "title": "Webhooks",
+    "status": "not included",
+    "scope": "Not implemented or promised by this standalone edition."
+  }
+]

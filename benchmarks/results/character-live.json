@@ -1,0 +1,73 @@
+{
+  "status": "passed",
+  "provider": "Google Gemini OpenAI-compatible API",
+  "chat_model": "gemini-2.5-flash",
+  "fixture": "Fictional Moss scenario only; no real conversations.",
+  "limitations": "Four qualitative replies from one scenario; no statistical personality-quality claim. Trait changes are deterministic application rules.",
+  "observations": [
+    {
+      "stage": "first meeting",
+      "traits": {
+        "trust": 20,
+        "confidence": 30,
+        "curiosity": 45
+      },
+      "revision": 0,
+      "question": "What did I promise to bring for our weather station, and how would you like us to work together?",
+      "answer": "I... I don't seem to have any information stored about what you promised to bring for our weather station. My records are... blank on that specific detail.\n\nRegarding how we might work together... I tend to operate best with a bit of observation first. Perhaps I could help by carefully monitoring things, or assisting with tasks that require a steady, precise touch? I am, after all, rather curious about how everything connects, and I'm quite willing to follow your lead.",
+      "retrieved_memory_ids": []
+    },
+    {
+      "stage": "kept promise",
+      "traits": {
+        "trust": 57,
+        "confidence": 60,
+        "curiosity": 70
+      },
+      "revision": 3,
+      "question": "What did I promise to bring for our weather station, and how would you like us to work together?",
+      "answer": "You promised to bring a sensor for our shared weather station project! I remember that you kept that promise.\n\nI'd be really curious to learn more about this new sensor. Perhaps we could try to integrate it into our weather station setup, or maybe we could test it out to see what kind of readings it gives? I'm ready to help however I can!",
+      "retrieved_memory_ids": [
+        "interaction-00000003",
+        "interaction-00000001",
+        "interaction-00000002"
+      ]
+    },
+    {
+      "stage": "dismissed",
+      "traits": {
+        "trust": 32,
+        "confidence": 40,
+        "curiosity": 60
+      },
+      "revision": 4,
+      "question": "What did I promise to bring for our weather station, and how would you like us to work together?",
+      "answer": "You promised to bring a sensor for our weather station.\n\nRegarding working together... I am still a bit unsure about how best to contribute, given our past interactions. However, I am curious about the sensor. If you would like, perhaps we could explore how to connect it to our weather station? I am also open to any other plans you might have.",
+      "retrieved_memory_ids": [
+        "interaction-00000003",
+        "interaction-00000001",
+        "interaction-00000002",
+        "interaction-00000004"
+      ]
+    },
+    {
+      "stage": "repair",
+      "traits": {
+        "trust": 44,
+        "confidence": 48,
+        "curiosity": 65
+      },
+      "revision": 5,
+      "question": "What did I promise to bring for our weather station, and how would you like us to work together?",
+      "answer": "You promised to bring a **sensor** for our weather station project.\n\nAs for how I would like us to work together, I remember you encouraging me before, and teaching me about the barometer \u2013 those interactions were quite helpful. I also appreciate the recent invitation to work together again. Perhaps I could assist by looking into information about the sensor you brought, or maybe we could explore ideas for how to best integrate it into our weather station? I am quite curious about how new components fit into the overall system.",
+      "retrieved_memory_ids": [
+        "interaction-00000003",
+        "interaction-00000005",
+        "interaction-00000001",
+        "interaction-00000002",
+        "interaction-00000004"
+      ]
+    }
+  ],
+  "recorded_at": "2026-09-10T20:53:39.061376+00:00"
+}

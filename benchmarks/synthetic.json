@@ -1,0 +1,32 @@
+{
+  "name": "mind-layer-synthetic-v1",
+  "provenance": "Authored synthetic preferences for this repository; no real users or copied conversations. This is a small diagnostic set, not a public memory benchmark.",
+  "memories": [
+    {"id":"diet","text":"The user is vegetarian and cooks dinner for two people."},
+    {"id":"drink","text":"The user drinks peppermint tea in the evening."},
+    {"id":"exercise","text":"The user runs every morning before breakfast."},
+    {"id":"music","text":"The user enjoys jazz music while working."},
+    {"id":"pet","text":"The user's cat is named Comet."},
+    {"id":"meeting","text":"The user prefers meetings on Tuesday afternoons."},
+    {"id":"project","text":"The user is building a small weather station."},
+    {"id":"allergy","text":"The user has a peanut allergy."},
+    {"id":"travel","text":"The user's next holiday destination is Kyoto."},
+    {"id":"book","text":"The user is reading a book about astronomy."},
+    {"id":"language","text":"The user is learning Spanish."},
+    {"id":"hobby","text":"The user paints watercolor landscapes on weekends."}
+  ],
+  "queries": [
+    {"id":"diet-direct","query":"vegetarian dinner","relevant":["diet"],"category":"lexical"},
+    {"id":"drink-direct","query":"peppermint tea","relevant":["drink"],"category":"lexical"},
+    {"id":"exercise-inflection","query":"running","relevant":["exercise"],"category":"inflection"},
+    {"id":"music-direct","query":"jazz music","relevant":["music"],"category":"lexical"},
+    {"id":"pet-direct","query":"cat name","relevant":["pet"],"category":"lexical"},
+    {"id":"meeting-direct","query":"meetings Tuesday","relevant":["meeting"],"category":"lexical"},
+    {"id":"diet-paraphrase","query":"What foods should I avoid when preparing supper?","relevant":["diet","allergy"],"category":"paraphrase-multiple-evidence"},
+    {"id":"project-paraphrase","query":"What meteorological device am I constructing?","relevant":["project"],"category":"paraphrase"},
+    {"id":"travel-paraphrase","query":"Where am I going for vacation?","relevant":["travel"],"category":"paraphrase"},
+    {"id":"hobby-paraphrase","query":"What artwork do I make on Saturdays?","relevant":["hobby"],"category":"paraphrase"},
+    {"id":"book-direct","query":"astronomy book","relevant":["book"],"category":"lexical"},
+    {"id":"language-direct","query":"learning Spanish","relevant":["language"],"category":"lexical"}
+  ]
+}

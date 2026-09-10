@@ -1,0 +1,17 @@
+{
+  "status": "passed",
+  "date": "2026-09-10",
+  "test": "TestLiveProvider",
+  "provider": "Google Gemini OpenAI-compatible API",
+  "chat_model": "gemini-2.5-flash",
+  "embedding_model": "gemini-embedding-001",
+  "extracted_facts": 2,
+  "fixture": "Authored vegetarian preference and cooking for two; no real user data.",
+  "checks": [
+    "fact extraction",
+    "semantic retrieval",
+    "hybrid context",
+    "answer contains remembered dietary preference"
+  ],
+  "limitations": "One synthetic live smoke test, not a general model-quality benchmark. No provider response text or credentials stored."
+}
