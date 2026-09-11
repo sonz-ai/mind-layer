@@ -147,7 +147,7 @@ for name in ["agent-setup.md", "agent-prompt.txt"]:
 shutil.copyfile(docs / "assets/agent-copy.js", site / "assets/agent-copy.js")
 copy_card = f'''<div class="agent-copy">
 <label for="agent-prompt">Instruction for your agent</label>
-<textarea id="agent-prompt" readonly rows="7" spellcheck="false">{html.escape(agent_prompt)}</textarea>
+<textarea id="agent-prompt" readonly rows="3" spellcheck="false">{html.escape(agent_prompt)}</textarea>
 <div class="agent-actions"><button type="button" id="copy-agent-prompt">Copy instruction</button>
 <a href="https://docs.sonz.ai/agent-setup.md">Read the Markdown guide</a></div>
 <p id="agent-copy-status" role="status" aria-live="polite">Paste into ChatGPT, Claude, or your coding agent.</p>
