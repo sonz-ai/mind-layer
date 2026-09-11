@@ -1,6 +1,6 @@
 {
   "status": "pass",
-  "measured_at": "2026-09-10T21:22:05.628125+00:00",
+  "measured_at": "2026-09-11T17:47:18.472365+00:00",
   "command": "go test -race -count=1 -json ./...; go vet ./...",
   "go_source_sha256": "640c9a450c18abf318cdf82ba94aeeaa134d788f6c5aa768237c308a9bf4777a",
   "capabilities": [

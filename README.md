@@ -234,7 +234,7 @@ pages to supported subsets or exclusions. Edit `docs/capabilities.json` and
 | Source provenance and license | Selected retrieval files recorded; Apache-2.0 and upstream notices included |
 | Docs, diagrams, synthetic benchmarks and CI workflow | Included; local verification runs independently of GitHub |
 | Public source | [github.com/sonz-ai/mind-layer](https://github.com/sonz-ai/mind-layer) |
-| Standalone docs deployment | Live at [mind-layer-docs.pages.dev](https://mind-layer-docs.pages.dev); `docs.sonz.ai` domain cutover pending |
+| Standalone docs deployment | Live at [docs.sonz.ai](https://docs.sonz.ai) |
 
 No source Git history, environment files, customer conversations, or internal
 runbooks were imported. Required public third-party copyright/license attribution
