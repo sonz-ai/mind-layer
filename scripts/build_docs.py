@@ -107,6 +107,22 @@ The live smoke report is `benchmarks/results/live-smoke.json`; it records one
 passed Gemini extraction/retrieval/answer test, not a quality leaderboard score.
 No token-price estimates or competitor numbers are invented.
 
+## Character chat smoke eval
+
+`make chat-eval` runs five authored messages through a real local HTTP server,
+then restarts it to verify exact chat receipts. It checks original fact and
+correction retrieval, mode labels, and unchanged story traits. To enable model
+replies explicitly, run `python3 scripts/run_chat_eval.py --live` with provider
+configuration. This can incur provider charges.
+
+Recorded results are `benchmarks/results/chat-offline.json` and
+`benchmarks/results/chat-live.json`. Read the unedited live responses to assess
+correction handling and unknown-fact honesty. The automated checks measure
+structure and context selection; they do not judge answer quality. This small
+fixture is newly authored for the standalone chat path. Existing hosted monolith
+eval suites depend on services outside this release and are not represented by
+these scores.
+
 ## Public benchmarks: not yet measured
 
 | Benchmark | Why relevant | This edition's status |

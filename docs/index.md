@@ -14,7 +14,7 @@ scope and the tests that support it.
 
 Run `make demo`, open `http://127.0.0.1:8090`, and choose interactions with Moss.
 The example changes fictional traits, personality and replies while retaining
-shared memories. No provider is needed. [Open the character guide](character-demo.md).
+shared memories. Chat and inspect the context behind each reply. Offline recall needs no provider; open-ended dialogue uses your configured model. [Open the character guide](character-demo.md).
 
 ![Character evolution](assets/character-evolution.svg)
 

@@ -26,6 +26,32 @@ barometer, keep a promise, dismiss an idea, and then apologize. The page shows
 changing traits, replies, an interaction graph, remembered facts and explanations
 of every change. **Recall shared experiences** queries actual persisted memory.
 
+### Chat and inspect its memory
+
+Use **Talk to Moss** to send a message. Each turn is saved locally with an
+**Inspect this reply** receipt: recalled memories, the personality at that moment,
+and which recent conversation turns were sent. Reload or restart to keep chatting.
+Only user messages and explicit story events are searched; model replies are not
+indexed as facts. The last four turns also provide conversational continuity.
+
+For open-ended conversation, configure your provider as shown under
+[Bring your own model key](#bring-your-own-model-key), then run:
+
+```sh
+go run ./cmd/character-demo -live
+```
+
+Try: “My greenhouse is called Fern House”; rename it to “Cedar Room”; ask what
+it is called. Then ask about something you have never told Moss. Inspect each
+reply to see what the model actually received. Offline mode records messages and
+quotes keyword matches, clearly labeled; it does not pretend to be a language model.
+The story buttons change traits. Free-text chat does not infer psychological scores.
+
+The [chat guide](docs/character-demo.md#persistent-chat) explains storage and limits.
+`make chat-eval` runs the synthetic conversation through a real server, restarts it,
+and checks that context receipts survive. [Recorded live chat](benchmarks/results/chat-live.json)
+includes the model's unedited replies; it is a small smoke test, not an accuracy score.
+
 ![Moss changes through remembered interactions](docs/assets/character-evolution.svg)
 
 | Step | Trust | Confidence | Curiosity | Visible consequence |
@@ -165,11 +191,12 @@ that silently sends old data to a provider.
 ```sh
 make verify          # capability tests, race detector and go vet
 make demo-scenario   # real demo executable, fresh temporary database, JSON result
+make chat-eval       # persistent chat + correction recall + restart checks
 make benchmark       # offline retrieval diagnostic + 1,000-record latency test
 make build           # bin/mind-layer and bin/character-demo
 ```
 
-All **15 documented capability groups** are mapped to passing named tests. Tests
+All **16 documented capability groups** are mapped to passing named tests. Tests
 cover storage/restart, isolation, corrections, deletion, provider errors, API
 access, atomic personality/memory updates and character evolution. Provider mocks
 prove protocol behavior; they are not evidence of model quality. Live tests are

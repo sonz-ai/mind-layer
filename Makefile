@@ -1,6 +1,6 @@
 PYTHON ?= $(if $(wildcard .venv/bin/python),.venv/bin/python,python3)
 
-.PHONY: test verify run build benchmark docs demo demo-scenario
+.PHONY: test verify run build benchmark docs demo demo-scenario chat-eval
 test:
 	go test ./...
 verify:
@@ -18,3 +18,6 @@ demo:
 	go run ./cmd/character-demo
 demo-scenario:
 	$(PYTHON) scripts/run_character_scenario.py
+
+chat-eval:
+	$(PYTHON) scripts/run_chat_eval.py
