@@ -8,6 +8,10 @@ provider calls, and an evolving-character test project. It reuses selected Sonza
 retrieval code with a new local storage/API layer. It is a scoped edition; it does
 not reproduce the entire hosted platform or its SDK/API contracts.
 
+Want help applying it to your project? [Copy the agent instruction](https://docs.sonz.ai/use-with-your-agent)
+into ChatGPT, Claude, or your coding agent. The [Markdown guide](docs/agent-setup.md)
+helps it recommend useful features and a small pilot grounded in the docs.
+
 ## Start with the character demo
 
 Requires **Go 1.26+**. From this repository:

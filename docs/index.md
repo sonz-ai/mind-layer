@@ -10,6 +10,15 @@ Its persistence, API and provider integration are new. It does not include the
 full hosted platform. The [capability matrix](capabilities.md) records the exact
 scope and the tests that support it.
 
+## Ask your agent about your project
+
+Copy this into ChatGPT, Claude, or your coding agent. It will read the guide,
+ask about what you're building, and suggest useful features with links to the docs.
+
+<!-- agent-copy -->
+
+[How to use this with your agent](use-with-your-agent.md).
+
 ## Try an evolving character
 
 Run `make demo`, open `http://127.0.0.1:8090`, and choose interactions with Moss.

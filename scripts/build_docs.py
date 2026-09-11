@@ -123,16 +123,32 @@ must remain outside the public source tree; do not bundle them as fixtures.
 '''
 (docs / "benchmarks.md").write_text(bench)
 
-pages = ["index", "character-demo", "capabilities", "configuration", "api", "benchmarks", "data-lifecycle"]
+pages = ["index", "use-with-your-agent", "character-demo", "capabilities", "configuration", "api", "benchmarks", "data-lifecycle"]
+agent_prompt = (docs / "agent-prompt.txt").read_text().strip()
+for name in ["agent-setup.md", "agent-prompt.txt"]:
+    shutil.copyfile(docs / name, site / name)
+(site / "_headers").write_text("/agent-setup.md\n  Content-Type: text/plain; charset=utf-8\n/agent-prompt.txt\n  Content-Type: text/plain; charset=utf-8\n")
+shutil.copyfile(docs / "assets/agent-copy.js", site / "assets/agent-copy.js")
+copy_card = f'''<div class="agent-copy">
+<label for="agent-prompt">Instruction for your agent</label>
+<textarea id="agent-prompt" readonly rows="7" spellcheck="false">{html.escape(agent_prompt)}</textarea>
+<div class="agent-actions"><button type="button" id="copy-agent-prompt">Copy instruction</button>
+<a href="https://docs.sonz.ai/agent-setup.md">Read the Markdown guide</a></div>
+<p id="agent-copy-status" role="status" aria-live="polite">Paste into ChatGPT, Claude, or your coding agent.</p>
+</div>'''
 titles = {p: (docs / f"{p}.md").read_text().splitlines()[0].removeprefix("# ") for p in pages}
 css = """body{margin:0;background:#fafaf8;color:#242622;font:17px/1.65 system-ui,sans-serif}header{border-bottom:1px solid #deded8;padding:22px 5%;display:flex;gap:25px;flex-wrap:wrap}header a{color:#244d3e;text-decoration:none}header strong{margin-right:auto}main{max-width:1050px;margin:48px auto;padding:0 24px 80px}h1{font-size:44px;line-height:1.1;letter-spacing:-1.5px}h2{margin-top:45px;line-height:1.25}p,li{max-width:85ch}a{color:#21674d}pre{background:#eeeFEA;padding:20px;border-radius:8px;overflow:auto}code{font-size:14px}table{display:block;overflow-x:auto;border-collapse:collapse;font-size:14px;margin:25px 0}td,th{border:1px solid #d9ddd5;padding:12px;text-align:left;vertical-align:top;min-width:125px}th{background:#edf1e9}footer{border-top:1px solid #deded8;padding:25px 5%;font-size:14px}@media(max-width:600px){header{gap:12px;font-size:14px}h1{font-size:34px}main{margin-top:30px}}"""
 for page in pages:
     source = (docs / f"{page}.md").read_text()
     source = re.sub(r"\]\(([a-z-]+)\.md\)", r"](\1.html)", source)
     body = markdown.markdown(source, extensions=["fenced_code", "tables"])
+    has_copy_card = "<!-- agent-copy -->" in body
+    body = body.replace("<!-- agent-copy -->", copy_card)
+    extra_css = '.agent-copy{border:1px solid #cbd7cc;border-radius:10px;padding:24px;margin:28px 0;background:#f0f4ed}.agent-copy label{display:block;font-weight:600;margin-bottom:12px}.agent-copy textarea{box-sizing:border-box;width:100%;resize:vertical;padding:14px;font:15px/1.6 system-ui;color:#242622;background:#fff;border:1px solid #b9c9bd;border-radius:6px}.agent-actions{display:flex;gap:20px;align-items:center;flex-wrap:wrap;margin-top:16px}.agent-copy button{background:#244d3e;color:white;border:0;border-radius:6px;padding:13px 20px;font:600 16px system-ui;cursor:pointer}.agent-copy button:hover{background:#183e2e}.agent-copy :focus-visible{outline:3px solid #b07717;outline-offset:3px}#agent-copy-status{font-size:14px;margin-bottom:0}'
+    script = '<script src="assets/agent-copy.js" defer></script>' if has_copy_card else ''
     nav = "".join(f'<a href="{p}.html">{html.escape(titles[p])}</a>' for p in pages if p != "index")
-    (site / f"{page}.html").write_text(f'<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>{html.escape(titles[page])} | Mind Layer</title><style>{css}</style></head><body><header><strong><a href="index.html">MIND LAYER</a></strong>{nav}</header><main>{body}</main><footer>Apache-2.0 · Run locally · No Sonzai account required</footer></body></html>')
-    (site / f"{page}.md").write_text((docs / f"{page}.md").read_text())
-(site / "llms.txt").write_text("# Mind Layer standalone docs\n\n" + "\n".join(f"- [{titles[p]}]({p}.md)" for p in pages) + "\n")
-(site / "llms-full.txt").write_text("\n\n".join((docs / f"{p}.md").read_text() for p in pages))
+    (site / f"{page}.html").write_text(f'<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>{html.escape(titles[page])} | Mind Layer</title><style>{css}{extra_css}</style>{script}</head><body><header><strong><a href="index.html">MIND LAYER</a></strong>{nav}</header><main>{body}</main><footer>Apache-2.0 · Run locally · No Sonzai account required</footer></body></html>')
+    (site / f"{page}.md").write_text((docs / f"{page}.md").read_text().replace("<!-- agent-copy -->", agent_prompt))
+(site / "llms.txt").write_text("# Mind Layer standalone docs\n\n" + "\n".join(f"- [{titles[p]}](https://docs.sonz.ai/{p}.md)" for p in pages) + "\n- [Agent project guide](https://docs.sonz.ai/agent-setup.md)\n")
+(site / "llms-full.txt").write_text("\n\n".join((site / f"{p}.md").read_text() for p in pages))
 print(f"Built {len(pages)} static pages and Markdown/LLM exports in site/ (no analytics).")
