@@ -3,6 +3,8 @@
 The source repository is public at https://github.com/sonz-ai/mind-layer.
 The static docs target a dedicated Cloudflare Pages project, `mind-layer-docs`,
 with `docs.sonz.ai` as the intended production hostname.
+The current deployment is live at https://mind-layer-docs.pages.dev. The custom
+hostname is still attached to the previous docs project; its cutover is pending.
 
 ## First deployment
 
