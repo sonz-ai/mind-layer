@@ -1,3 +1,4 @@
-name = "mind-layer-docs"
+# Retain the existing Pages project to preserve docs.sonz.ai routing.
+name = "mafia-docs"
 pages_build_output_dir = "site"
 compatibility_date = "2026-09-10"
