@@ -1,0 +1,148 @@
+{
+  "fixture": "authored greenhouse conversation v1; synthetic data only",
+  "dataset_sha256": "58381a2cdfba325a0edd82b46956ddedefdf635fff27b131413b22f76b882998",
+  "measured_at": "2026-09-11T17:54:12.469014+00:00",
+  "mode": "offline",
+  "model": null,
+  "checks": {
+    "five_complete_turns": true,
+    "restart_preserves_exact_receipts": true,
+    "retrieved_original_fact": true,
+    "retrieved_correction": true,
+    "free_chat_does_not_infer_traits": true,
+    "mode_labeled": true
+  },
+  "passed": true,
+  "limits": "Five authored messages, one local process, one restart. Structural checks measure persistence and context selection, not answer quality. Read live replies manually for correction handling and unknown-fact honesty. Latencies include local HTTP and, in live mode, provider time; they are not a load benchmark.",
+  "turns": [
+    {
+      "turn": {
+        "number": 1,
+        "message": "I am building a greenhouse called Fern House. I want to grow basil in it.",
+        "answer": "I've saved your words in our local history. I'm in offline mode: I can show matching memories, but open-ended conversation needs a configured model.",
+        "mode": "offline",
+        "context": {
+          "personality": "You are Moss, a fictional curious workshop companion. Trust=20/100, confidence=30/100, curiosity=45/100. Current disposition: Guarded explorer. Low trust means reserved language; high trust means collaborative initiative. Low confidence means tentative suggestions; high confidence means offering a concrete next step. Remember shared experiences, acknowledge repairs without pretending hurt never happened, and do not invent memories. These are fictional game traits, not assessments of a real person.",
+          "memories": []
+        },
+        "recent_turns": [],
+        "created_at": "2026-09-11T17:54:11.789819Z"
+      },
+      "milliseconds": 53.62
+    },
+    {
+      "turn": {
+        "number": 2,
+        "message": "Can you help me think of a small first step?",
+        "answer": "This reminds me of something you shared: \u201cI am building a greenhouse called Fern House. I want to grow basil in it.\u201d\n\nThis is a local recall response, not model-generated dialogue.",
+        "mode": "offline",
+        "context": {
+          "personality": "You are Moss, a fictional curious workshop companion. Trust=20/100, confidence=30/100, curiosity=45/100. Current disposition: Guarded explorer. Low trust means reserved language; high trust means collaborative initiative. Low confidence means tentative suggestions; high confidence means offering a concrete next step. Remember shared experiences, acknowledge repairs without pretending hurt never happened, and do not invent memories. These are fictional game traits, not assessments of a real person.",
+          "memories": [
+            {
+              "memory": {
+                "id": "chat-00000001",
+                "text": "I am building a greenhouse called Fern House. I want to grow basil in it.",
+                "session": "user-chat",
+                "created_at": "2026-09-11T17:54:11.789819Z",
+                "updated_at": "0001-01-01T00:00:00Z"
+              },
+              "score": 0.2876820724517809
+            }
+          ]
+        },
+        "recent_turns": [],
+        "created_at": "2026-09-11T17:54:12.269341Z"
+      },
+      "milliseconds": 440.84
+    },
+    {
+      "turn": {
+        "number": 3,
+        "message": "Actually, I renamed the greenhouse Cedar Room. Please use the new name.",
+        "answer": "This reminds me of something you shared: \u201cI am building a greenhouse called Fern House. I want to grow basil in it.\u201d\n\nThis is a local recall response, not model-generated dialogue.",
+        "mode": "offline",
+        "context": {
+          "personality": "You are Moss, a fictional curious workshop companion. Trust=20/100, confidence=30/100, curiosity=45/100. Current disposition: Guarded explorer. Low trust means reserved language; high trust means collaborative initiative. Low confidence means tentative suggestions; high confidence means offering a concrete next step. Remember shared experiences, acknowledge repairs without pretending hurt never happened, and do not invent memories. These are fictional game traits, not assessments of a real person.",
+          "memories": [
+            {
+              "memory": {
+                "id": "chat-00000001",
+                "text": "I am building a greenhouse called Fern House. I want to grow basil in it.",
+                "session": "user-chat",
+                "created_at": "2026-09-11T17:54:11.789819Z",
+                "updated_at": "0001-01-01T00:00:00Z"
+              },
+              "score": 2.2245290951285597
+            }
+          ]
+        },
+        "recent_turns": [],
+        "created_at": "2026-09-11T17:54:12.284944Z"
+      },
+      "milliseconds": 12.64
+    },
+    {
+      "turn": {
+        "number": 4,
+        "message": "What did I name my greenhouse, and what do I want to grow there?",
+        "answer": "This reminds me of something you shared: \u201cI am building a greenhouse called Fern House. I want to grow basil in it.\u201d\n\nThis is a local recall response, not model-generated dialogue.",
+        "mode": "offline",
+        "context": {
+          "personality": "You are Moss, a fictional curious workshop companion. Trust=20/100, confidence=30/100, curiosity=45/100. Current disposition: Guarded explorer. Low trust means reserved language; high trust means collaborative initiative. Low confidence means tentative suggestions; high confidence means offering a concrete next step. Remember shared experiences, acknowledge repairs without pretending hurt never happened, and do not invent memories. These are fictional game traits, not assessments of a real person.",
+          "memories": [
+            {
+              "memory": {
+                "id": "chat-00000001",
+                "text": "I am building a greenhouse called Fern House. I want to grow basil in it.",
+                "session": "user-chat",
+                "created_at": "2026-09-11T17:54:11.789819Z",
+                "updated_at": "0001-01-01T00:00:00Z"
+              },
+              "score": 4.943217587571908
+            },
+            {
+              "memory": {
+                "id": "chat-00000003",
+                "text": "Actually, I renamed the greenhouse Cedar Room. Please use the new name.",
+                "session": "user-chat",
+                "created_at": "2026-09-11T17:54:12.284944Z",
+                "updated_at": "0001-01-01T00:00:00Z"
+              },
+              "score": 2.824890616691324
+            }
+          ]
+        },
+        "recent_turns": [],
+        "created_at": "2026-09-11T17:54:12.297743Z"
+      },
+      "milliseconds": 12.52
+    },
+    {
+      "turn": {
+        "number": 5,
+        "message": "What is my favorite music?",
+        "answer": "This reminds me of something you shared: \u201cWhat did I name my greenhouse, and what do I want to grow there?\u201d\n\nThis is a local recall response, not model-generated dialogue.",
+        "mode": "offline",
+        "context": {
+          "personality": "You are Moss, a fictional curious workshop companion. Trust=20/100, confidence=30/100, curiosity=45/100. Current disposition: Guarded explorer. Low trust means reserved language; high trust means collaborative initiative. Low confidence means tentative suggestions; high confidence means offering a concrete next step. Remember shared experiences, acknowledge repairs without pretending hurt never happened, and do not invent memories. These are fictional game traits, not assessments of a real person.",
+          "memories": [
+            {
+              "memory": {
+                "id": "chat-00000004",
+                "text": "What did I name my greenhouse, and what do I want to grow there?",
+                "session": "user-chat",
+                "created_at": "2026-09-11T17:54:12.297743Z",
+                "updated_at": "0001-01-01T00:00:00Z"
+              },
+              "score": 2.859435410274098
+            }
+          ]
+        },
+        "recent_turns": [],
+        "created_at": "2026-09-11T17:54:12.310136Z"
+      },
+      "milliseconds": 12.31
+    }
+  ]
+}

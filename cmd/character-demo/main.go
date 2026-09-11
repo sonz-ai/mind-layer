@@ -64,7 +64,7 @@ func main() {
 		}
 		return
 	}
-	server := &http.Server{Addr: *addr, Handler: character.Handler(demo, *live), ReadHeaderTimeout: 5 * time.Second, ReadTimeout: 15 * time.Second, WriteTimeout: 90 * time.Second, IdleTimeout: 60 * time.Second}
+	server := &http.Server{Addr: *addr, Handler: character.Handler(demo, *live, provider), ReadHeaderTimeout: 5 * time.Second, ReadTimeout: 15 * time.Second, WriteTimeout: 90 * time.Second, IdleTimeout: 60 * time.Second}
 	ctx, stop := signal.NotifyContext(context.Background(), os.Interrupt, syscall.SIGTERM)
 	defer stop()
 	go func() {

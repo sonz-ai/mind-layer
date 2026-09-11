@@ -50,6 +50,7 @@ Use this map as a starting point, then verify it against the current docs:
 | Turn a conversation into durable facts | Optional fact extraction | Your application chooses which text to submit and reviews corrections. Extraction can be wrong. |
 | Give an assistant consistent voice and relevant history | Configured personality plus retrieved context | Supply context to your existing agent, or use the optional single-response chat endpoint. Chat does not automatically save the conversation. |
 | Build a character whose traits change after events | The Moss character example | The example uses explicit application rules. Automatic personality evolution is not a core memory feature. |
+| Try persistent character conversations with inspectable context | The Moss chat example | The demo saves complete turns and context receipts, with optional provider replies. This persistence is application code, not automatic storage by the core chat endpoint. |
 | Let users inspect or remove stored information | Scope export and logical deletion | Your application provides user controls and authorization. Backups and secure disk erasure need separate handling. |
 
 Recommend no memory layer if the product does not need durable per-person context.

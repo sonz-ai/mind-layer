@@ -23,6 +23,49 @@ teaching and a kept promise raise these values. Dismissal lowers them. An apolog
 restores only part of the loss: the final state is **44 / 48 / 65**. These are
 explicit fictional game rules, not scientifically validated personality scores.
 
+## Persistent chat
+
+**Talk to Moss** saves your message, reply, and a context receipt together as one
+Mind Layer memory record. Use **Inspect this reply** to see the retrieved user
+messages/story events, personality snapshot, and IDs of the recent turns used.
+Those receipts describe the actual request context, not a model-generated
+explanation or hidden reasoning. Offline mode shows local recall; `-live` enables
+open-ended dialogue through the configured provider.
+
+Chat records live in a separate `<agent>-chat/<user>` scope in the same demo
+database. Their user messages rebuild a small BM25 index on each request. The
+three highest-ranked matches from story memory and chat recall are supplied to
+the model, along with the last four complete conversation turns. Scores from the
+two corpora are ranking hints, not calibrated confidence. Generated replies are
+preserved for conversational continuity but are never indexed as user facts.
+
+The chat scope stores full receipts for inspection, so the general memory API
+must not be exposed over this dedicated demo database. A rejected provider call
+does not store half a turn. Stale turn numbers return HTTP 409; reload to recover
+if another browser sent a message or a response was lost. The demo allows 100 chat
+turns, messages up to 700 UTF-8 bytes, and replies up to 2,500 bytes. Context receipts
+must also fit the core's 8 KiB memory-record limit. Start a new database for a new
+conversation. Data is local but not application-encrypted; provider-enabled chat
+sends messages and selected context to your provider. Its charges and retention apply.
+
+Try the fictional greenhouse example in the README. A later correction remains
+an explicit dated user message; the model is instructed to prefer it. This is
+not a general contradiction-resolution system or a promise that every correction
+will always be retrieved. Free text does not modify the character's trait policy.
+
+Reproduce the structural checks (fresh temporary database; no personal data):
+
+```sh
+make chat-eval
+# With configured provider variables; incurs provider usage:
+python3 scripts/run_chat_eval.py --live
+```
+
+The recorded offline and live results are `benchmarks/results/chat-offline.json`
+and `benchmarks/results/chat-live.json`. They check complete turns, exact restart
+persistence, original fact and correction retrieval, mode labels, and unchanged
+story traits. Five synthetic messages are not a general answer-quality benchmark.
+
 ## What changes and why
 
 | Interaction | Trust delta | Confidence delta | Curiosity delta |
@@ -53,7 +96,7 @@ old one, choose a new database path:
 go run ./cmd/character-demo -data data/moss-second-story.db
 ```
 
-The demonstration allows up to 100 interactions. It binds only to a loopback IP,
+The demonstration allows up to 100 story interactions and 100 chat turns. It binds only to a loopback IP,
 rejects cross-origin requests, and does not expose the general memory API. The
 demo database must remain separate from other application data.
 
@@ -66,7 +109,7 @@ With a configured direct provider (`MIND_LAYER_BASE_URL`, `MIND_LAYER_API_KEY`,
 go run ./cmd/character-demo -live
 ```
 
-**Generate a model reply** sends the question, current personality and retrieved
+The separate **Generate a model reply** button under Ask memory sends the question, current personality and retrieved
 memories directly to that provider. It does not infer trait deltas, store the
 question or rewrite the event history. This keeps model creativity separate from
 the deterministic evolution policy. Provider charges and retention apply.

@@ -15,7 +15,11 @@ import (
 //go:embed index.html
 var page []byte
 
-func Handler(d *Demo, live bool) http.Handler {
+func Handler(d *Demo, live bool, providers ...*ml.Provider) http.Handler {
+	var provider *ml.Provider
+	if live && len(providers) > 0 {
+		provider = providers[0]
+	}
 	mux := http.NewServeMux()
 	send := func(w http.ResponseWriter, v any, err error) {
 		w.Header().Set("Content-Type", "application/json")
@@ -24,6 +28,9 @@ func Handler(d *Demo, live bool) http.Handler {
 			status, message := 500, "Operation failed; your stored history is preserved."
 			if errors.Is(err, ErrConflict) {
 				status, message = 409, "State changed; reload and try again."
+			}
+			if errors.Is(err, ErrReplyLimit) {
+				status, message = 502, "Model reply was too long. Ask for a shorter response and try again."
 			}
 			if errors.Is(err, ml.ErrInvalid) {
 				status, message = 400, "Invalid request."
@@ -75,6 +82,18 @@ func Handler(d *Demo, live bool) http.Handler {
 		}
 		v, err := d.Interact(r.Context(), in.Action, in.Revision)
 		send(w, v, err)
+	})
+	mux.HandleFunc("GET /api/chat", func(w http.ResponseWriter, r *http.Request) {
+		turns, err := d.Chats()
+		send(w, turns, err)
+	})
+	mux.HandleFunc("POST /api/chat", func(w http.ResponseWriter, r *http.Request) {
+		in, ok := decode(w, r)
+		if !ok {
+			return
+		}
+		turn, err := d.Chat(r.Context(), in.Query, in.Revision, provider)
+		send(w, turn, err)
 	})
 	mux.HandleFunc("POST /api/recall", func(w http.ResponseWriter, r *http.Request) {
 		in, ok := decode(w, r)
