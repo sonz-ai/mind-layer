@@ -1,8 +1,8 @@
 {
   "status": "pass",
-  "measured_at": "2026-09-12T20:43:14.887748+00:00",
+  "measured_at": "2026-09-12T20:53:01.561455+00:00",
   "command": "go test -race -count=1 -json ./...; go vet ./...",
-  "go_source_sha256": "696535a1dd000c5e41bccf8171e3bc14cc473472772881d6b30e1f894c7def8f",
+  "go_source_sha256": "aaaafaa28b9f14e4fc25a761acac8c32f2025e7782c95bcc6f7fb9973a22ebd6",
   "capabilities": [
     {
       "id": "offline-memory",

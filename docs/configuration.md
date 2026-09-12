@@ -26,7 +26,7 @@ The server reads process environment variables. It does not automatically load
 defaults are deliberately not guessed. HTTPS is required except for a loopback
 IP endpoint such as `http://127.0.0.1:11434/v1`. Redirects are refused.
 
-### Gemini example, verified with a synthetic smoke test
+### Gemini 3.8 Flash example
 
 ```sh
 export MIND_LAYER_BASE_URL=https://generativelanguage.googleapis.com/v1beta/openai
@@ -38,6 +38,27 @@ go run ./cmd/mind-layer -data data/semantic.db
 
 This uses Google's documented [OpenAI-compatible API](https://ai.google.dev/gemini-api/docs/openai).
 It calls Google directly. Provider availability and charges depend on your account.
+
+The character chat path was live-tested with Gemini 3.8 Flash. Historical
+benchmark reports retain the model used for each measurement.
+
+### GPT-6 Astra
+
+For an OpenAI account with access to GPT-6 Astra:
+
+```sh
+export MIND_LAYER_BASE_URL=https://api.openai.com/v1
+export MIND_LAYER_API_KEY="$OPENAI_API_KEY"
+export MIND_LAYER_CHAT_MODEL=gpt-6-astra
+unset MIND_LAYER_EMBEDDING_MODEL
+go run ./cmd/character-demo -live
+```
+
+The adapter sends plain text Chat Completions without sampling parameters or
+tools. [GPT-6 Astra supports this endpoint](https://developers.openai.com/api/docs/guides/latest-model?model=gpt-6-astra).
+Account access is required; this configuration has not been live-tested here.
+The example keeps retrieval local. Choose an embedding model separately when
+using semantic memory; chat model names are not embedding model names.
 
 ### Other compatible providers
 
