@@ -22,6 +22,7 @@ type ChatTurn struct {
 	Message     string     `json:"message"`
 	Answer      string     `json:"answer"`
 	Mode        string     `json:"mode"`
+	Model       string     `json:"model,omitempty"`
 	Context     ml.Context `json:"context"`
 	RecentTurns []int      `json:"recent_turns"`
 	CreatedAt   time.Time  `json:"created_at"`
@@ -123,6 +124,7 @@ func (d *Demo) Chat(ctx context.Context, message string, expected int, provider 
 			return ChatTurn{}, ErrReplyLimit
 		}
 		turn.Mode = "model"
+		turn.Model = provider.ChatModel()
 	}
 	raw, err := json.Marshal(turn)
 	if err != nil {

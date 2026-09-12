@@ -23,6 +23,24 @@ teaching and a kept promise raise these values. Dismissal lowers them. An apolog
 restores only part of the loss: the final state is **44 / 48 / 65**. These are
 explicit fictional game rules, not scientifically validated personality scores.
 
+## Memory showcase
+
+Open `http://127.0.0.1:8090/showcase` for the conversation and its context receipt
+side by side. The left panel shows saved user messages; the right panel shows the
+selected reply's exact retrieved memories and four recent-turn IDs. An older
+memory is marked when its turn lies outside that recent window. The UI uses the
+same storage and chat endpoints as the character lab; it is not a separate engine.
+Live replies persist the explicitly configured model name in each new receipt.
+Older receipts without a model field remain readable.
+
+The [narrated walkthrough](https://sonz.ai/demo/inside) uses Gemini 3.8 Flash,
+with authored synthetic data and a real server restart. It demonstrates an older
+preference and a changed budget being retrieved for a later plan. The model
+interprets both statements; the earlier memory is not silently overwritten.
+`TestChatRetrievesBeyondRecentWindow` checks the retrieval/context contract;
+`TestChatPersistenceRecallAndIsolation` checks restart persistence. These checks
+are not a model-quality benchmark.
+
 ## Persistent chat
 
 **Talk to Moss** saves your message, reply, and a context receipt together as one

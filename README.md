@@ -16,13 +16,18 @@ helps it recommend useful features and a small pilot grounded in the docs.
 
 [![Watch the Mind Layer demo: Moss recalls a corrected greenhouse name](https://sonz.ai/media/mind-layer-demo.gif)](https://sonz.ai/demo)
 
-**[Watch the full 69-second video →](https://sonz.ai/demo)** ·
-[Download the MP4](https://github.com/sonz-ai/mind-layer/releases/download/v0.1.0/mind-layer-v0.1.0-demo.mp4)
+**[Watch the 32-second introduction →](https://sonz.ai/demo)** ·
+**[Explore the narrated walkthrough →](https://sonz.ai/demo/inside)**
 
-A real conversation with Moss using Gemini 2.5 Flash: remember a fact, correct it,
-inspect the memories behind a reply, and keep the conversation after a reload.
-Silent, with on-screen explanations. Synthetic example data; one demonstration,
-not a benchmark. To interact with Moss yourself, run the local demo below.
+Both demos use **Gemini 3.8 Flash**. The short introduction presents actual replies
+in an edited visual sequence. The narrated walkthrough records the running app:
+Moss recovers older birthday preferences and a changed budget after four unrelated
+exchanges and a real server restart. The page lets you inspect each exact reply,
+retrieved memories, and recent-turn IDs. Synthetic data; demonstrations, not
+benchmarks. [Full walkthrough receipts](https://sonz.ai/media/mind-layer-walkthrough-receipt.json).
+
+To use the same memory-focused interface locally, start the demo below and open
+**http://127.0.0.1:8090/showcase**. The original character lab remains at `/`.
 
 ## Start with the character demo
 
@@ -177,7 +182,7 @@ These direct-provider settings have been smoke-tested with Gemini:
 ```sh
 export MIND_LAYER_BASE_URL=https://generativelanguage.googleapis.com/v1beta/openai
 export MIND_LAYER_API_KEY="$GEMINI_API_KEY"
-export MIND_LAYER_CHAT_MODEL=gemini-2.5-flash
+export MIND_LAYER_CHAT_MODEL=gemini-3.8-flash
 export MIND_LAYER_EMBEDDING_MODEL=gemini-embedding-001
 
 # Optional generated dialogue in the character project:

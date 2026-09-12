@@ -110,7 +110,7 @@ func TestChatProviderContextAndFailureAtomicity(t *testing.T) {
 	if err != nil {
 		t.Fatal(err)
 	}
-	if turn.Mode != "model" || len(turn.Context.Memories) != 1 || !reflect.DeepEqual(turn.RecentTurns, []int{1}) {
+	if turn.Model != "synthetic-test-model" || turn.Mode != "model" || len(turn.Context.Memories) != 1 || !reflect.DeepEqual(turn.RecentTurns, []int{1}) {
 		t.Fatal("missing context receipt")
 	}
 	if !strings.Contains(requests[1][0].Content, "fictional curious workshop") || !strings.Contains(requests[1][1].Content, "Fern House") {
@@ -201,5 +201,53 @@ func TestChatConcurrentRevision(t *testing.T) {
 	turns, _ := d.Chats()
 	if successes != 1 || len(turns) != 1 {
 		t.Fatal("duplicate turn committed")
+	}
+}
+
+func TestChatRetrievesBeyondRecentWindow(t *testing.T) {
+	server := httptest.NewServer(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+		w.Header().Set("Content-Type", "application/json")
+		w.Write([]byte(`{"choices":[{"message":{"role":"assistant","content":"Synthetic provider reply."}}]}`))
+	}))
+	defer server.Close()
+	provider, err := ml.NewProvider(server.URL, "", "synthetic-test-model", "")
+	if err != nil {
+		t.Fatal(err)
+	}
+	s, err := ml.Open(filepath.Join(t.TempDir(), "older.db"), nil)
+	if err != nil {
+		t.Fatal(err)
+	}
+	defer s.Close()
+	d, err := New(s, ml.Scope{Agent: "moss", User: "one"})
+	if err != nil {
+		t.Fatal(err)
+	}
+	for i, message := range []string{
+		"Inez's birthday night garden budget is 180. Inez likes living basil.",
+		"Inez's birthday night garden budget is now 120. No electric lights.",
+		"Paintbrushes need cleaning.", "Screwdrivers have different tips.",
+		"Washers go in the small drawer.", "Fold the cotton cloth.",
+	} {
+		if _, err := d.Chat(context.Background(), message, i, provider); err != nil {
+			t.Fatal(err)
+		}
+	}
+	turn, err := d.Chat(context.Background(), "Plan Inez's birthday night garden within the latest budget.", 6, provider)
+	if err != nil {
+		t.Fatal(err)
+	}
+	if !reflect.DeepEqual(turn.RecentTurns, []int{3, 4, 5, 6}) {
+		t.Fatal("unexpected recent context", turn.RecentTurns)
+	}
+	found := map[string]bool{}
+	for _, hit := range turn.Context.Memories {
+		found[hit.Memory.ID] = true
+	}
+	if !found["chat-00000001"] || !found["chat-00000002"] {
+		t.Fatal("older details and correction were not retrieved", found)
+	}
+	if turn.Model != "synthetic-test-model" {
+		t.Fatal("model not preserved in receipt")
 	}
 }

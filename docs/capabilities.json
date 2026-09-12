@@ -135,13 +135,14 @@
   },
   {
     "id": "inspectable-character-chat",
-    "claim": "Persistent character chat with retrieved-context receipts, restart recovery, user isolation, and optional direct-provider replies; free text does not infer trait changes",
+    "claim": "Persistent character chat with model-labeled context receipts, retrieval beyond the recent four-turn window, restart recovery, user isolation, and optional direct-provider replies; free text does not infer trait changes",
     "provider": "none for offline recall; chat model for open-ended dialogue",
     "tests": [
       "TestChatPersistenceRecallAndIsolation",
       "TestChatProviderContextAndFailureAtomicity",
       "TestChatHTTPAndValidation",
-      "TestChatConcurrentRevision"
+      "TestChatConcurrentRevision",
+      "TestChatRetrievesBeyondRecentWindow"
     ]
   }
 ]

@@ -31,7 +31,7 @@ IP endpoint such as `http://127.0.0.1:11434/v1`. Redirects are refused.
 ```sh
 export MIND_LAYER_BASE_URL=https://generativelanguage.googleapis.com/v1beta/openai
 export MIND_LAYER_API_KEY="$GEMINI_API_KEY"
-export MIND_LAYER_CHAT_MODEL=gemini-2.5-flash
+export MIND_LAYER_CHAT_MODEL=gemini-3.8-flash
 export MIND_LAYER_EMBEDDING_MODEL=gemini-embedding-001
 go run ./cmd/mind-layer -data data/semantic.db
 ```

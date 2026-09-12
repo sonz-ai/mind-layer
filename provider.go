@@ -22,6 +22,14 @@ type Provider struct {
 	client                                  *http.Client
 }
 
+// ChatModel names the explicitly configured model without exposing credentials.
+func (p *Provider) ChatModel() string {
+	if p == nil {
+		return ""
+	}
+	return p.chatModel
+}
+
 func NewProvider(baseURL, key, chatModel, embeddingModel string) (*Provider, error) {
 	u, err := url.Parse(baseURL)
 	if err != nil || u.Host == "" || u.User != nil || u.RawQuery != "" || u.Fragment != "" {

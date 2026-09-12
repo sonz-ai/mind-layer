@@ -26,6 +26,7 @@ func TestCharacterHTTP(t *testing.T) {
 		contains                   string
 	}{
 		{"GET", "/", "", "", 200, "Meet Moss."},
+		{"GET", "/showcase", "", "", 200, "Memory, made visible."},
 		{"GET", "/api/state", "", "", 200, `"revision":0`},
 		{"POST", "/api/interact", `{"action":"encourage","revision":0}`, "http://127.0.0.1:8090", 200, `"confidence":45`},
 		{"POST", "/api/interact", `{"action":"encourage","revision":0}`, "", 409, "State changed"},

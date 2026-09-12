@@ -15,6 +15,9 @@ import (
 //go:embed index.html
 var page []byte
 
+//go:embed showcase.html
+var showcase []byte
+
 func Handler(d *Demo, live bool, providers ...*ml.Provider) http.Handler {
 	var provider *ml.Provider
 	if live && len(providers) > 0 {
@@ -71,9 +74,13 @@ func Handler(d *Demo, live bool, providers ...*ml.Provider) http.Handler {
 		w.Header().Set("Content-Type", "text/html; charset=utf-8")
 		w.Write(page)
 	})
+	mux.HandleFunc("GET /showcase", func(w http.ResponseWriter, r *http.Request) {
+		w.Header().Set("Content-Type", "text/html; charset=utf-8")
+		w.Write(showcase)
+	})
 	mux.HandleFunc("GET /api/state", func(w http.ResponseWriter, r *http.Request) {
 		v, err := d.View()
-		send(w, map[string]any{"character": v, "live": live}, err)
+		send(w, map[string]any{"character": v, "live": live, "model": provider.ChatModel()}, err)
 	})
 	mux.HandleFunc("POST /api/interact", func(w http.ResponseWriter, r *http.Request) {
 		in, ok := decode(w, r)

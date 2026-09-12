@@ -1,8 +1,8 @@
 {
   "status": "pass",
-  "measured_at": "2026-09-11T22:53:12.806249+00:00",
+  "measured_at": "2026-09-12T20:43:14.887748+00:00",
   "command": "go test -race -count=1 -json ./...; go vet ./...",
-  "go_source_sha256": "187f224f65c5264a913b0cb454caaec3e2f44f1afa81ee47567be9757b44a26f",
+  "go_source_sha256": "696535a1dd000c5e41bccf8171e3bc14cc473472772881d6b30e1f894c7def8f",
   "capabilities": [
     {
       "id": "offline-memory",
@@ -114,10 +114,11 @@
         "TestChatPersistenceRecallAndIsolation",
         "TestChatProviderContextAndFailureAtomicity",
         "TestChatHTTPAndValidation",
-        "TestChatConcurrentRevision"
+        "TestChatConcurrentRevision",
+        "TestChatRetrievesBeyondRecentWindow"
       ]
     }
   ],
-  "test_pass_events": 100,
+  "test_pass_events": 101,
   "note": "Includes subtests. Live provider tests skipped in this offline run. Passing provider mocks establish contracts, not model quality."
 }

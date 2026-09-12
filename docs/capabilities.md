@@ -22,7 +22,7 @@ separate live smoke and benchmark reports measure actual provider behavior.
 | Concurrent in-process access and validation before batch writes | none | `TestConcurrentMemoryAccess`, `TestInputValidationAndAtomicBatch` |
 | Commit application-driven personality changes with event memories atomically | none; embeddings if configured | `TestAtomicScopeUpdate` |
 | Moss example evolves through explicit interactions, recalls them, persists after restart and rejects stale turns | none; optional generated dialogue | `TestCharacterEvolution`, `TestCharacterRestartAndIsolation`, `TestCharacterConcurrentRevision`, `TestCharacterBoundsAndInvalidAction`, `TestCharacterHTTP` |
-| Persistent character chat with retrieved-context receipts, restart recovery, user isolation, and optional direct-provider replies; free text does not infer trait changes | none for offline recall; chat model for open-ended dialogue | `TestChatPersistenceRecallAndIsolation`, `TestChatProviderContextAndFailureAtomicity`, `TestChatHTTPAndValidation`, `TestChatConcurrentRevision` |
+| Persistent character chat with model-labeled context receipts, retrieval beyond the recent four-turn window, restart recovery, user isolation, and optional direct-provider replies; free text does not infer trait changes | none for offline recall; chat model for open-ended dialogue | `TestChatPersistenceRecallAndIsolation`, `TestChatProviderContextAndFailureAtomicity`, `TestChatHTTPAndValidation`, `TestChatConcurrentRevision`, `TestChatRetrievesBeyondRecentWindow` |
 
 ## Relationship to existing hosted docs
 
