@@ -17,3 +17,20 @@
   IDs as end-user authentication. Deletion is logical, not secure erasure.
 - Preserve Apache-2.0 and upstream license notices. Do not publish or deploy unless
   requested by the user; local preparation does not imply a completed release.
+
+## Public design and writing
+
+Follow [PUBLIC_STYLE.md](PUBLIC_STYLE.md) for websites, demos, docs introductions,
+launch posts, captions, and new recordings.
+
+- Use Charter with Cambria/Georgia fallbacks for reading text and headings,
+  system sans for controls, and monospace for code.
+- Keep a warm white background, dark text, one restrained accent, an approximately
+  68-character reading column, and 18–20px prose with comfortable line spacing.
+- Explain the product in short connected paragraphs with one primary action.
+  Remove duplicate labels, slogans, decorative badges, and competing cards.
+- Use the structure of a clear technical product article: problem, mechanism,
+  concrete example, evidence, limitations, and setup. OpenAI’s technical blog is
+  a writing reference; use Sonzai’s own voice and supported claims.
+- Keep API reference complete and demo provenance visible. Standalone and hosted
+  capabilities differ. Rebuild and verify before publishing.

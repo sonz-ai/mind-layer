@@ -1,67 +1,51 @@
-# Mind Layer
+# Memory for your agent
 
-Give an agent persistent memory without a Sonzai account or hosted subscription.
-Run one Go process with an embedded database. Store facts locally, retrieve them
-by keyword, and optionally use your own model-provider key for semantic retrieval,
-fact extraction and replies.
+Mind Layer stores facts your agent can retrieve in later conversations. Run it
+locally, keep the database, and inspect the context used for a reply. No Sonzai
+account is required.
 
-This standalone edition reuses Sonzai's BM25 and multilingual tokenization code.
-Its persistence, API and provider integration are new. It does not include the
-full hosted platform. The [capability matrix](capabilities.md) records the exact
-scope and the tests that support it.
+[Use it with your agent](use-with-your-agent.md) or try Moss, a character that
+remembers your interactions.
 
-## Ask your agent about your project
+## Meet Moss
 
-Copy this into ChatGPT, Claude, or your coding agent. It will read the guide,
-ask about what you're building, and suggest useful features with links to the docs.
+Run `make demo` and open `http://127.0.0.1:8090`. Choose an interaction, talk to
+Moss, and look at the memories behind a reply. Story choices change its traits
+through explicit rules. Offline mode recalls stored facts; open-ended dialogue
+uses your configured model. [Read the demo guide](character-demo.md).
 
-<!-- agent-copy -->
+## Run Mind Layer
 
-[How to use this with your agent](use-with-your-agent.md).
-
-## Try an evolving character
-
-Run `make demo`, open `http://127.0.0.1:8090`, and choose interactions with Moss.
-The example changes fictional traits, personality and replies while retaining
-shared memories. Chat and inspect the context behind each reply. Offline recall needs no provider; open-ended dialogue uses your configured model. [Open the character guide](character-demo.md).
-
-![Character evolution](assets/character-evolution.svg)
-
-## Quick start
-
-From the repository root, with Go 1.26 installed:
+With Go 1.26 installed, start the service from the repository root:
 
 ```sh
 go run ./cmd/mind-layer
 ```
 
-In another terminal:
+Then run the example in another terminal:
 
 ```sh
 python3 examples/quickstart.py
 ```
 
-No key is needed for this example. Facts persist in `data/memory.db` across restarts.
-The initial Go build needs network access to download dependencies. Runtime
-keyword memory operations do not make network calls.
+No provider key is needed. Facts persist in `data/memory.db` across restarts.
+The first build downloads dependencies; keyword memory operations run locally
+without network calls.
 
-## A conversation ends; the memory stays
+## Choose how to retrieve memories
 
-1. Store: “The user is vegetarian and cooks dinner for two people.”
-2. Later, query: “vegetarian dinner”.
-3. Supply the retrieved fact to your agent, or call the optional chat endpoint.
+Keyword search can find a stored fact about “vegetarian dinner” when your agent
+asks for those words. For differently worded questions, configure an embedding
+model and use semantic or hybrid search. You can also configure a chat model to
+extract facts and write replies. [Configure a provider](configuration.md).
 
-For paraphrases such as “What should guide my meal suggestions?”, configure an
-embedding model and use semantic or hybrid search. Keyword search alone cannot
-reliably connect phrases that use different words; the benchmark demonstrates this.
+Mind Layer runs as one Go process with an embedded database. It is Apache-2.0,
+with no Sonzai subscription, license server, metering or telemetry dependency.
+Optional model usage is billed by your provider; you can also use a compatible
+local model server. You cover your own hardware and hosting.
 
-## Ownership and cost
-
-The source is Apache-2.0. There is no Sonzai payment, license key, license server,
-metering or telemetry dependency. You own and operate the database. Optional
-provider usage is billed by your provider; a compatible local model server can
-run without a paid API. Hardware and hosting remain your responsibility.
-
-Continue with [Configuration](configuration.md), [API](api.md),
-[Capabilities](capabilities.md), [Benchmarks](benchmarks.md), and
-[Data lifecycle](data-lifecycle.md).
+This standalone edition reuses Sonzai’s BM25 and multilingual tokenization code;
+its persistence, API and provider integration are new. It includes a subset of
+the hosted platform. Read the [tested capabilities](capabilities.md),
+[API reference](api.md), [benchmarks](benchmarks.md), and
+[data lifecycle](data-lifecycle.md) for the exact scope.

@@ -1,24 +1,20 @@
-# Ask your agent about Mind Layer
+# Use Mind Layer with your agent
 
-Find out where persistent memory could help your product. Copy the instruction
-below into ChatGPT, Claude, or your coding agent, and tell it what you're building.
-It will use the docs to suggest useful features and a small first integration.
+Copy this instruction into ChatGPT, Claude, or your coding agent. Tell it what
+you’re building; the guide helps it suggest a small first integration, with
+costs, limitations and links to the docs.
 
 <!-- agent-copy -->
 
-## What happens next
+Your agent may ask about your project before recommending an approach. You decide
+whether to implement it. This instruction does not install an integration or send
+your project to Sonzai. A project description and fictional examples are enough;
+no credentials or customer data are needed.
 
-1. Your agent reads the guide and asks about your project where context is missing.
-2. It recommends relevant features, explains costs and limitations, and links to the documentation.
-3. You choose whether to move from a proposal to implementation.
-
-This starts a conversation with your agent. It does not install a ChatGPT or Claude
-integration or send your project to Sonzai. If your agent cannot open links, paste
-the [Markdown guide](https://docs.sonz.ai/agent-setup.md) and the
+If your agent cannot open links, paste the
+[Markdown guide](https://docs.sonz.ai/agent-setup.md) and
 [documentation bundle](https://docs.sonz.ai/llms-full.txt) into the conversation.
-Use a project description and fictional examples; no credentials or customer data
-are needed.
 
-Prefer to explore directly? Start with [Configuration](configuration.md),
-[Tested capabilities](capabilities.md), [REST API](api.md), or the
-[character demo](character-demo.md).
+To integrate directly, start with [Configuration](configuration.md) and the
+[REST API](api.md). The [tested capabilities](capabilities.md) explain what this
+edition supports.

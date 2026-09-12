@@ -1,33 +1,14 @@
 # Mind Layer
 
-**Persistent memory you run yourself. No Sonzai account, subscription or license server.**
+Mind Layer stores facts and personality settings for AI characters and agents.
+Run it locally and inspect the context used in later replies. The standalone
+edition is Apache-2.0 and requires no Sonzai account.
 
-This Apache-2.0 standalone edition includes durable scoped memory, BM25 keyword
-retrieval, optional semantic/hybrid retrieval, personality configuration, direct
-provider calls, and an evolving-character test project. It reuses selected Sonzai
-retrieval code with a new local storage/API layer. It is a scoped edition; it does
-not reproduce the entire hosted platform or its SDK/API contracts.
+Start with the character demo below, or read the [agent setup guide](docs/agent-setup.md).
+This edition has its own storage and API layer and a smaller feature set than
+the hosted Sonzai platform. See the [tested capabilities](docs/capabilities.md).
 
-Want help applying it to your project? [Copy the agent instruction](https://docs.sonz.ai/use-with-your-agent)
-into ChatGPT, Claude, or your coding agent. The [Markdown guide](docs/agent-setup.md)
-helps it recommend useful features and a small pilot grounded in the docs.
-
-## Watch the demo
-
-[![Watch the Mind Layer demo: Moss recalls a corrected greenhouse name](https://sonz.ai/media/mind-layer-demo.gif)](https://sonz.ai/demo)
-
-**[Watch the 32-second introduction →](https://sonz.ai/demo)** ·
-**[Explore the narrated walkthrough →](https://sonz.ai/demo/inside)**
-
-Both demos use **Gemini 3.8 Flash**. The short introduction presents actual replies
-in an edited visual sequence. The narrated walkthrough records the running app:
-Moss recovers older birthday preferences and a changed budget after four unrelated
-exchanges and a real server restart. The page lets you inspect each exact reply,
-retrieved memories, and recent-turn IDs. Synthetic data; demonstrations, not
-benchmarks. [Full walkthrough receipts](https://sonz.ai/media/mind-layer-walkthrough-receipt.json).
-
-To use the same memory-focused interface locally, start the demo below and open
-**http://127.0.0.1:8090/showcase**. The original character lab remains at `/`.
+[Watch the 32-second demo →](https://sonz.ai/demo)
 
 ## Start with the character demo
 
@@ -305,3 +286,20 @@ is not secure erasure of free pages, backups or provider logs.
 
 Maintainers: see [Publishing](docs/PUBLISHING.md) for the dedicated Cloudflare
 Pages configuration and manual deployment workflow.
+
+## Public design and writing
+
+Follow [PUBLIC_STYLE.md](PUBLIC_STYLE.md) for websites, demos, docs introductions,
+launch posts, captions, and new recordings.
+
+- Use Charter with Cambria/Georgia fallbacks for reading text and headings,
+  system sans for controls, and monospace for code.
+- Keep a warm white background, dark text, one restrained accent, an approximately
+  68-character reading column, and 18–20px prose with comfortable line spacing.
+- Explain the product in short connected paragraphs with one primary action.
+  Remove duplicate labels, slogans, decorative badges, and competing cards.
+- Use the structure of a clear technical product article: problem, mechanism,
+  concrete example, evidence, limitations, and setup. OpenAI’s technical blog is
+  a writing reference; use Sonzai’s own voice and supported claims.
+- Keep API reference complete and demo provenance visible. Standalone and hosted
+  capabilities differ. Rebuild and verify before publishing.
