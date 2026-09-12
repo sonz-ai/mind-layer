@@ -110,7 +110,7 @@ func TestChatProviderContextAndFailureAtomicity(t *testing.T) {
 	if err != nil {
 		t.Fatal(err)
 	}
-	if turn.Mode != "model" || len(turn.Context.Memories) != 1 || !reflect.DeepEqual(turn.RecentTurns, []int{1}) {
+	if turn.Mode != "model" || turn.Model != "synthetic-test-model" || len(turn.Context.Memories) != 1 || !reflect.DeepEqual(turn.RecentTurns, []int{1}) {
 		t.Fatal("missing context receipt")
 	}
 	if !strings.Contains(requests[1][0].Content, "fictional curious workshop") || !strings.Contains(requests[1][1].Content, "Fern House") {

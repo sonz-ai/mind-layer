@@ -69,6 +69,14 @@ func (p *Provider) call(ctx context.Context, path string, body, out any) error {
 	return nil
 }
 
+// ChatModel identifies the configured model without exposing provider credentials.
+func (p *Provider) ChatModel() string {
+	if p == nil {
+		return ""
+	}
+	return p.chatModel
+}
+
 func (p *Provider) vectorModel() string {
 	if p == nil || p.embeddingModel == "" {
 		return ""

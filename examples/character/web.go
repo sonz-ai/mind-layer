@@ -73,7 +73,7 @@ func Handler(d *Demo, live bool, providers ...*ml.Provider) http.Handler {
 	})
 	mux.HandleFunc("GET /api/state", func(w http.ResponseWriter, r *http.Request) {
 		v, err := d.View()
-		send(w, map[string]any{"character": v, "live": live}, err)
+		send(w, map[string]any{"character": v, "live": live, "model": provider.ChatModel()}, err)
 	})
 	mux.HandleFunc("POST /api/interact", func(w http.ResponseWriter, r *http.Request) {
 		in, ok := decode(w, r)
