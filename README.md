@@ -12,6 +12,18 @@ Want help applying it to your project? [Copy the agent instruction](https://docs
 into ChatGPT, Claude, or your coding agent. The [Markdown guide](docs/agent-setup.md)
 helps it recommend useful features and a small pilot grounded in the docs.
 
+## Watch the demo
+
+[![Watch the Mind Layer demo: Moss recalls a corrected greenhouse name](https://sonz.ai/media/mind-layer-demo.gif)](https://sonz.ai/demo)
+
+**[Watch the full 69-second video →](https://sonz.ai/demo)** ·
+[Download the MP4](https://github.com/sonz-ai/mind-layer/releases/download/v0.1.0/mind-layer-v0.1.0-demo.mp4)
+
+A real conversation with Moss using Gemini 2.5 Flash: remember a fact, correct it,
+inspect the memories behind a reply, and keep the conversation after a reload.
+Silent, with on-screen explanations. Synthetic example data; one demonstration,
+not a benchmark. To interact with Moss yourself, run the local demo below.
+
 ## Start with the character demo
 
 Requires **Go 1.26+**. From this repository:
