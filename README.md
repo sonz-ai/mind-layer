@@ -66,6 +66,7 @@ key. You can also use Mind Layer as a Go library.
 Mind Layer provides:
 
 - **Persistent memory:** store, update, export, and delete records within agent/user scopes.
+- **Corrections:** mark a new memory as superseding an old one. The old one is kept for export but no longer retrieved; ingest can propose these links.
 - **Keyword retrieval:** local BM25 search with multilingual tokenization.
 - **Semantic and hybrid retrieval:** optional embeddings from your configured provider.
 - **Explicit personality settings:** persist personality and commit memory/personality changes atomically.

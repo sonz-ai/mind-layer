@@ -35,8 +35,8 @@ lines += ["", "## Relationship to existing hosted docs", "",
 for item in legacy:
     lines.append(f"| {item['title']} | {item['status']} | {item['scope']} |")
 lines += ["", "## Explicit limitations", "",
-          "No automatic personality evolution, graph reasoning, semantic contradiction",
-          "resolution, memory decay/consolidation jobs, shared organization memory,",
+          "No automatic personality evolution, graph reasoning, background contradiction",
+          "detection, memory decay/consolidation jobs, shared organization memory,",
           "proactive messages, voice, external tool execution, MCP server, or hosted SDK",
           "compatibility is claimed. Personality is configured text. Sessions are labels.",
           "Single-owner authentication is not end-user authorization. Logical deletion",

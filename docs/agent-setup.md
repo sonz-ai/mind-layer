@@ -55,7 +55,7 @@ Use this map as a starting point, then verify it against the current docs:
 
 Recommend no memory layer if the product does not need durable per-person context.
 Do not invent hosted SDK compatibility, an MCP server, shared organization memory,
-automatic contradiction resolution, background memory consolidation, or horizontal
+background contradiction detection, background memory consolidation, or horizontal
 scaling. An agent can help integrate the REST API or Go library; pasting this guide
 does not install memory into ChatGPT or Claude.
 

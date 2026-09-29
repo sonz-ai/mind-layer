@@ -1,8 +1,8 @@
 {
   "status": "pass",
-  "measured_at": "2026-09-12T21:33:13.776728+00:00",
+  "measured_at": "2026-09-29T03:50:48.010214+00:00",
   "command": "go test -race -count=1 -json ./...; go vet ./...",
-  "go_source_sha256": "bf4360f034cf192133ccb6169a29cd5ec465229202f625c2a57015b39a2d9ce3",
+  "go_source_sha256": "6ce33f32923270a095b56bfe18d7f6ca097f260d2e2570792cd096b08c03a30b",
   "capabilities": [
     {
       "id": "offline-memory",
@@ -46,6 +46,16 @@
       "id": "export-delete",
       "passing_tests": [
         "TestExportAndDeletion"
+      ]
+    },
+    {
+      "id": "corrections",
+      "passing_tests": [
+        "TestCorrectionsSupersedeOlderMemories",
+        "TestCorrectionValidation",
+        "TestIngestMarksCorrections",
+        "TestIngestRejectsUnknownSupersedes",
+        "TestHTTPCorrection"
       ]
     },
     {
@@ -119,6 +129,6 @@
       ]
     }
   ],
-  "test_pass_events": 101,
+  "test_pass_events": 106,
   "note": "Includes subtests. Live provider tests skipped in this offline run. Passing provider mocks establish contracts, not model quality."
 }
