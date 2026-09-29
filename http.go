@@ -18,6 +18,7 @@ type request struct {
 	ID          string `json:"id,omitempty"`
 	Text        string `json:"text,omitempty"`
 	Session     string `json:"session,omitempty"`
+	Supersedes  string `json:"supersedes,omitempty"`
 	Query       string `json:"query,omitempty"`
 	Mode        string `json:"mode,omitempty"`
 	Limit       int    `json:"limit,omitempty"`
@@ -80,7 +81,7 @@ func Handler(s *Store, token string) http.Handler {
 		if !ok {
 			return
 		}
-		out, err := s.Put(r.Context(), in.Scope, Input{in.ID, in.Text, in.Session})
+		out, err := s.Put(r.Context(), in.Scope, Input{ID: in.ID, Text: in.Text, Session: in.Session, Supersedes: in.Supersedes})
 		respond(w, out, err)
 	})
 	mux.HandleFunc("DELETE /v1/memories", func(w http.ResponseWriter, r *http.Request) {

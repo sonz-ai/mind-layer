@@ -58,6 +58,18 @@
     ]
   },
   {
+    "id": "corrections",
+    "claim": "Explicit corrections: a memory can supersede another in its scope, which removes the old one from search and context but keeps it in export; deleting the correction restores it. Ingest can mark corrections only against related memories it was shown",
+    "provider": "none; chat model for ingest-marked corrections",
+    "tests": [
+      "TestCorrectionsSupersedeOlderMemories",
+      "TestCorrectionValidation",
+      "TestIngestMarksCorrections",
+      "TestIngestRejectsUnknownSupersedes",
+      "TestHTTPCorrection"
+    ]
+  },
+  {
     "id": "personality-context",
     "claim": "Persist a manually configured personality and include it in retrieved context",
     "provider": "none",

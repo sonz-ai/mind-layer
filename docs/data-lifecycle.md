@@ -32,10 +32,12 @@ creating repeated charges. Request timeouts are bounded.
 
 ## User-controlled memory
 
-Use explicit scope IDs; authorize them in your application's backend. Use stable
-memory IDs for corrections. Exact text deduplication is supported, but semantic
-deduplication, temporal reasoning and contradiction resolution are outside this
-edition. If facts change, update or delete the old fact explicitly.
+Use explicit scope IDs; authorize them in your application's backend. When a fact
+changes, store the new fact with `supersedes` naming the old one, update it by ID,
+or delete it. Superseded memories remain stored and exported until you delete them.
+Ingest can ask the model to mark corrections against related memories it is shown.
+Exact text deduplication is supported; semantic deduplication, temporal reasoning
+and background contradiction detection are outside this edition.
 
 Only supplied facts or model-extracted facts are stored. The ingest endpoint does
 not save the raw transcript, and chat does not save conversation history. Models

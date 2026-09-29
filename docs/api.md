@@ -29,9 +29,29 @@ POST/PUT request bodies have a 1 MiB limit and reject unknown fields or trailing
 
 Returns the stored memory. A supplied ID updates that memory inside this scope.
 Omit the ID to derive one from trimmed text: exact duplicates collapse, but
-semantic duplicates and contradictions are not automatically reconciled. Text
-must be nonempty and at most 8,192 bytes. Session labels are optional provenance,
-at most 128 bytes; they do not create a managed conversation runtime.
+semantic duplicates are not merged. Text must be nonempty and at most 8,192
+bytes. Session labels are optional provenance, at most 128 bytes; they do not
+create a managed conversation runtime.
+
+### Corrections
+
+To record that a fact has changed, store the new fact with `supersedes` set to
+the ID of the memory it replaces:
+
+```json
+{
+  "scope":{"agent":"assistant","user":"synthetic-user"},
+  "id":"budget-2",
+  "text":"The garden budget is now 120 euros.",
+  "supersedes":"budget-1"
+}
+```
+
+The replaced memory stays in the database and in export, marked with
+`superseded_by`, but search, context and chat no longer return it. Deleting the
+correction makes the replaced memory retrievable again. The target must exist in
+the same scope (otherwise 404). Superseding itself or creating a cycle returns 400.
+Updating a memory by ID without `supersedes` keeps its existing link.
 
 ## Search and build context
 
@@ -70,6 +90,13 @@ There is no Big Five inference, automatic trait evolution or mood simulation.
 facts from supplied text. The raw transcript is not stored by this endpoint.
 Provider retention is separate from local retention.
 
+Before extracting, ingest runs a keyword search with the text and sends up to 10
+related live memories (IDs and text) to the provider. The model may mark a new
+fact as superseding one of them. Only IDs that were sent are accepted; any other
+ID fails the whole request and nothing is stored. The model can still miss a
+correction or mark the wrong one. Review exports, and use explicit `supersedes`
+writes or deletion to fix mistakes.
+
 ```json
 {"scope":{"agent":"assistant","user":"synthetic-user"},"text":"User: I am vegetarian and cook for two.","session":"first-conversation"}
 ```
@@ -79,13 +106,15 @@ Provider retention is separate from local retention.
 It is a single non-streaming completion using retrieved context, not a managed
 multi-turn conversation. It does not automatically store the query or response.
 Call ingest explicitly for conversations you choose to remember. Extraction can
-be wrong; review facts and use explicit ID updates for corrections.
+be wrong; review facts and use `supersedes` or explicit ID updates for corrections.
+When retrieved memories conflict, the chat prompt tells the model to prefer the
+more recently updated one.
 
 ## Export and delete
 
 | Method and path | Result |
 | --- | --- |
-| `GET /v1/export?agent=assistant&user=synthetic-user` | All live memories, vectors and personality for the scope |
+| `GET /v1/export?agent=assistant&user=synthetic-user` | All live memories, including superseded ones, vectors and personality for the scope |
 | `DELETE /v1/memories?agent=assistant&user=synthetic-user&id=diet` | Delete one live record and its search entry |
 | `DELETE /v1/scope?agent=assistant&user=synthetic-user` | Delete all live records, indexes and personality for the scope |
 | `GET /healthz` | Process liveness; not a provider connectivity test |

@@ -14,6 +14,7 @@ separate live smoke and benchmark reports measure actual provider behavior.
 | Direct-provider embeddings, cosine retrieval and reciprocal-rank hybrid search | embedding model | `TestSemanticAndHybridRecall`, `TestModelMismatchFailsClosed` |
 | Update by memory ID and deduplicate exact trimmed text | none; embedding calls when configured | `TestExplicitUpdatesAndDeduplication` |
 | Export a scope and logically delete individual memories or the whole scope | none | `TestExportAndDeletion` |
+| Explicit corrections: a memory can supersede another in its scope, which removes the old one from search and context but keeps it in export; deleting the correction restores it. Ingest can mark corrections only against related memories it was shown | none; chat model for ingest-marked corrections | `TestCorrectionsSupersedeOlderMemories`, `TestCorrectionValidation`, `TestIngestMarksCorrections`, `TestIngestRejectsUnknownSupersedes`, `TestHTTPCorrection` |
 | Persist a manually configured personality and include it in retrieved context | none | `TestPersonalityContext`, `TestDurableMemory` |
 | Extract facts from supplied text and answer with selected memories through the configured provider | chat model; optional embedding model | `TestExtractionAndGroundedChat`, `TestExtractionFailureDoesNotPersist` |
 | REST memory, personality, retrieval, context, ingest, chat, export and delete endpoints | depends on endpoint | `TestHTTPMemoryLifecycle`, `TestHTTPProviderEndpoints` |
@@ -72,8 +73,8 @@ not included unless this edition's API and tests explicitly document them.
 
 ## Explicit limitations
 
-No automatic personality evolution, graph reasoning, semantic contradiction
-resolution, memory decay/consolidation jobs, shared organization memory,
+No automatic personality evolution, graph reasoning, background contradiction
+detection, memory decay/consolidation jobs, shared organization memory,
 proactive messages, voice, external tool execution, MCP server, or hosted SDK
 compatibility is claimed. Personality is configured text. Sessions are labels.
 Single-owner authentication is not end-user authorization. Logical deletion
